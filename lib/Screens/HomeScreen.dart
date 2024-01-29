@@ -106,29 +106,29 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(
                   height: 15,
                 ),
-                Padding(
+                const Padding(
                   padding: EdgeInsets.only(left: 5),
-                  child: const Text('Select you Sign',
+                  child: Text('Select you Sign',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
                           fontFamily: 'RobotoMono')),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: astrologySigns(),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: astrologySigns(),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
@@ -163,7 +163,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Text(
             daysOfWeek[index % 7],
             // Modulo 7 to cycle through days of the week
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: const TextStyle(fontWeight: FontWeight.bold),
           ),
         ],
       ),
@@ -190,7 +190,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-          Text(
+          const Text(
             'Aries',
             // Modulo 7 to cycle through days of the week
             style: TextStyle(fontWeight: FontWeight.bold),
