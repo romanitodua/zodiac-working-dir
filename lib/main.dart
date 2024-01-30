@@ -6,6 +6,8 @@ import 'package:untitled1/Screens/Testing.dart';
 import 'package:untitled1/Themes/theme_constants.dart';
 import 'package:untitled1/Themes/theme_manager.dart';
 
+import 'Screens/Settings/Settings.dart';
+
 void main() {
   runApp(
     // Adding ProviderScope enables Riverpod for the entire project
@@ -24,7 +26,7 @@ class MyApp extends ConsumerWidget {
       darkTheme: darkTheme,
       themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
       title: 'ZodiacAppWorkingDir',
-      home: Testing(),
+      home: Settings(),
     );
   }
 }
