@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:untitled1/Screens/HomeScreen.dart';
 import 'package:untitled1/Screens/HoroscopeDetailsScreen.dart';
 import 'package:untitled1/Screens/Testing.dart';
+import 'package:untitled1/Screens/ZodiacDetails.dart';
 import 'package:untitled1/Themes/theme_constants.dart';
 import 'package:untitled1/Themes/theme_manager.dart';
 
@@ -10,7 +11,6 @@ import 'Screens/Settings/Settings.dart';
 
 void main() {
   runApp(
-    // Adding ProviderScope enables Riverpod for the entire project
     const ProviderScope(child: MyApp()),
   );
 }
@@ -26,7 +26,7 @@ class MyApp extends ConsumerWidget {
       darkTheme: darkTheme,
       themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
       title: 'ZodiacAppWorkingDir',
-      home: Settings(),
+      home: const ZodiacDetails(),
     );
   }
 }
