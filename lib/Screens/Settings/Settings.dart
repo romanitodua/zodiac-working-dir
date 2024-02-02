@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:untitled1/test.dart';
 
 import '../../Themes/theme_manager.dart';
 
@@ -22,14 +23,14 @@ class _SettingsState extends ConsumerState<Settings> {
 
   @override
   Widget build(BuildContext context) {
-    var darkMode = ref.watch(darkModeProvider);
+    var darkMode = ref.watch(myNotifierProvider);
     return Scaffold(
       appBar: AppBar(
         title: const Text("Settings"),
         actions: [
           Switch(
             value: darkMode,
-            onChanged: (val) => ref.read(darkModeProvider.notifier).toggle(),
+            onChanged: (val) => ref.read(myNotifierProvider.notifier).toggle(),
           ),
         ],
       ),
@@ -49,8 +50,7 @@ class _SettingsState extends ConsumerState<Settings> {
                     fillColor: Colors.grey),
                 items: _dropdown_list,
                 onChanged: (value) {
-                  setState(() {
-                  });
+                  setState(() {});
                 },
                 // value: _chosen,
                 hint: Text("Choose your Zodiac Sign",
