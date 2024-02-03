@@ -7,7 +7,7 @@ import '../data/ZodiacDetailProvider.dart';
 
 part 'Provider.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 Future<ZodiacDetailProvider> fetchDetails(FetchDetailsRef ref) async {
   final response = await http.get(Uri.parse("https://zodiacapp.pythonanywhere.com/blogs/"));
   final json = jsonDecode(response.body) as Map<String, dynamic>;
@@ -15,6 +15,5 @@ Future<ZodiacDetailProvider> fetchDetails(FetchDetailsRef ref) async {
   print(json);
   return ZodiacDetailProvider.fromJson(json);
 }
-
 
 

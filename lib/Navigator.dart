@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled1/Screens/HomeScreen.dart';
 import 'package:untitled1/Screens/HoroscopeDetailsScreen.dart';
 import 'package:untitled1/Screens/ZodiacDetails.dart';
 
@@ -12,7 +13,7 @@ class MyNavigator extends StatefulWidget {
 }
 
 class _MyNavigatorState extends State<MyNavigator> {
-  final List<Widget> _pages = [const HoroscopeDetailsScreen(), const ZodiacDetails(), const Settings()];
+  final List<Widget> _pages = [const HomeScreen(), const ZodiacDetails(), const Settings()];
   int start_page = 0;
 
   @override

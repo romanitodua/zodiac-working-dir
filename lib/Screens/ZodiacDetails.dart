@@ -113,51 +113,14 @@ class _ZodiacDetailsState extends ConsumerState<ZodiacDetails> {
               SizedBox(
                 height: 10,
               ),
-              ToggleButtons(
-                children: [
-                  Container(
-                    height: 50,
-                    width: 50,
-                    decoration: BoxDecoration(
-                      color: Color.fromRGBO(73, 74, 78, 1),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Center(
-                      child: Text("1",
-                          style: TextStyle(
-                              fontSize: 25,
-                              color: _isSelected[0]
-                                  ? Colors.white
-                                  : Color.fromRGBO(255, 255, 255, 0.5))),
-                    ),
-                  ),
-                  Container(
-                    height: 50,
-                    width: 50,
-                    decoration: BoxDecoration(
-                      color: Color.fromRGBO(73, 74, 78, 1),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Center(
-                      child: Text("2", style: TextStyle(fontSize: 25)),
-                    ),
-                  )
-                ],
-                isSelected: _isSelected,
-                onPressed: (s) {
-                  _isSelected[s] = true;
-                  setState(() {});
-                },
-                selectedColor: Colors.white,
-              ),
-              Builder(builder: (context) {
+              Consumer(builder: (builder, context, ref) {
                 return zodiac.when(
                   data: (data) => Text(data.descriptionDaily!),
                   error: (error, stack) =>
                       Text('Oops, something unexpected happened'),
                   loading: () => CircularProgressIndicator(),
                 );
-              }),
+              })
             ],
           ),
         ),
