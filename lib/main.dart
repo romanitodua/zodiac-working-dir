@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:untitled1/Screens/HomeScreen.dart';
+import 'package:untitled1/Screens/Selection/Selection.dart';
 import 'package:untitled1/Screens/HoroscopeDetailsScreen.dart';
 import 'package:untitled1/Screens/ZodiacDetails.dart';
 import 'package:untitled1/Themes/theme_constants.dart';
 import 'package:untitled1/Themes/theme_manager.dart';
-import 'package:untitled1/test.dart';
+import 'package:untitled1/no-network-providers/DarkModeProvider.dart';
 
 import 'Navigator.dart';
 import 'Screens/Settings/Settings.dart';

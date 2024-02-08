@@ -3,6 +3,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 part 'test.g.dart';
 
+
+// dark mode notifier
 @riverpod
 class MyNotifier extends _$MyNotifier {
   late SharedPreferences prefs;

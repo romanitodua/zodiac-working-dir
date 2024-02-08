@@ -15,8 +15,6 @@ class ZodiacDetails extends ConsumerStatefulWidget {
 
 class _ZodiacDetailsState extends ConsumerState<ZodiacDetails> {
   late int choiceChip_selected;
-  List<bool> _isSelected = List.filled(2, false);
-
   @override
   void initState() {
     choiceChip_selected = 0;

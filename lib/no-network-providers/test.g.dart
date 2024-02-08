@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'test.dart';
+part of 'DarkModeProvider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
