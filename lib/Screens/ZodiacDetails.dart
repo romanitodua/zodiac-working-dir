@@ -1,30 +1,32 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:untitled1/Networking/Provider.dart';
+import 'package:untitled1/Utils/constants.dart';
 import 'package:untitled1/data/ZodiacDetailProvider.dart';
 
-import 'Selection/Selection.dart';
+import '../Utils/Extensions.dart';
 
 class ZodiacDetails extends ConsumerStatefulWidget {
-  const ZodiacDetails({super.key});
+  final int signIndex;
+
+  const ZodiacDetails(this.signIndex, {super.key});
 
   @override
   ConsumerState createState() => _ZodiacDetailsState();
 }
 
-class _ZodiacDetailsState extends ConsumerState<ZodiacDetails> {
-  late int choiceChip_selected;
+class _ZodiacDetailsState extends ConsumerState<ZodiacDetails> with Responsive {
+  late int choiceChipSelected;
+
   @override
   void initState() {
-    choiceChip_selected = 0;
+    choiceChipSelected = 0;
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    var zodiac = ref.watch(fetchDetailsProvider);
-    Size size = MediaQuery.of(context).size;
+    AsyncValue<ZodiacDetailProvider> zodiac = ref.watch(fetchDetailsProvider);
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -32,17 +34,18 @@ class _ZodiacDetailsState extends ConsumerState<ZodiacDetails> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Container(
-                child: Image.asset('assets/moon.png', fit: BoxFit.fill),
-                width: size.width,
-                height: size.height * 0.3,
+              SizedBox(
+                width: screenWidth,
+                height: screenHeight * 0.3,
+                child: Image.asset(allSigns[widget.signIndex].assetPicture,
+                    fit: BoxFit.fill),
               ),
               SizedBox(
-                height: 10,
+                height: screenHeight / 86,
               ),
               Center(
                   child: Text(
-                "Aries",
+                allSigns[widget.signIndex].name,
                 style: Theme.of(context)
                     .textTheme
                     .bodyLarge
@@ -50,79 +53,79 @@ class _ZodiacDetailsState extends ConsumerState<ZodiacDetails> {
               )),
               Center(
                   child: Text(
-                "13Mar-20Mar",
+                allSigns[widget.signIndex].date,
                 style: Theme.of(context)
                     .textTheme
                     .bodyLarge
                     ?.copyWith(fontWeight: FontWeight.w500, fontSize: 15),
               )),
               SizedBox(
-                height: 10,
+                height: screenHeight / 86,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  ChoiceChip(
-                    showCheckmark: false,
-                    padding: EdgeInsets.only(left: 10, right: 10),
-                    label: const Text("Daily"),
-                    selected: choiceChip_selected == 0,
-                    onSelected: (bool selected) {
-                      setState(() {
-                        choiceChip_selected = 0;
-                      });
-                    },
+                  createChoiceChip(
+                    isSelected: choiceChipSelected == 0,
+                    text: "Daily",
+                    index: 0,
                   ),
-                  ChoiceChip(
-                    showCheckmark: false,
-                    padding: EdgeInsets.only(left: 10, right: 10),
-                    label: const Text("Weekly"),
-                    selected: choiceChip_selected == 1,
-                    onSelected: (bool selected) {
-                      setState(() {
-                        choiceChip_selected = 1;
-                      });
-                    },
+                  createChoiceChip(
+                    isSelected: choiceChipSelected == 1,
+                    text: "Weekly",
+                    index: 1,
                   ),
-                  ChoiceChip(
-                    showCheckmark: false,
-                    padding: EdgeInsets.only(left: 10, right: 10),
-                    label: const Text("Monthly"),
-                    selected: choiceChip_selected == 2,
-                    onSelected: (bool selected) {
-                      setState(() {
-                        choiceChip_selected = 2;
-                      });
-                    },
+                  createChoiceChip(
+                    isSelected: choiceChipSelected == 2,
+                    text: "Monthly",
+                    index: 2,
                   ),
-                  ChoiceChip(
-                    showCheckmark: false,
-                    padding: EdgeInsets.only(left: 10, right: 10),
-                    label: const Text("Yearly"),
-                    selected: choiceChip_selected == 3,
-                    onSelected: (bool selected) {
-                      setState(() {
-                        choiceChip_selected = 3;
-                      });
-                    },
-                  )
+                  createChoiceChip(
+                    isSelected: choiceChipSelected == 3,
+                    text: "Yearly",
+                    index: 3,
+                  ),
                 ],
               ),
               SizedBox(
-                height: 10,
+                height: screenHeight / 86,
               ),
               Consumer(builder: (builder, context, ref) {
                 return zodiac.when(
                   data: (data) => Text(data.descriptionDaily!),
                   error: (error, stack) =>
-                      Text('Oops, something unexpected happened'),
-                  loading: () => CircularProgressIndicator(),
+                      const Text('Oops, something unexpected happened'),
+                  loading: () =>
+                      const Center(child: CircularProgressIndicator()),
                 );
               })
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget createChoiceChip(
+      {required String text, required int index, required bool isSelected}) {
+    return ChoiceChip(
+      selectedColor: Colors.white,
+      disabledColor: const Color.fromRGBO(73, 74, 78, 1),
+      labelStyle: TextStyle(
+          color: isSelected
+              ? Colors.black
+              : const Color.fromRGBO(113, 113, 117, 1),
+          fontSize: 20,
+          fontWeight: FontWeight.bold),
+      showCheckmark: false,
+      padding: const EdgeInsets.only(left: 10, right: 10),
+      label: Text(text),
+      selected: isSelected,
+      onSelected: (bool selected) {
+        setState(() {
+          choiceChipSelected = index;
+        });
+      },
     );
   }
 }

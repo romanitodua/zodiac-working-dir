@@ -17,7 +17,7 @@ class MyNavigator extends StatefulWidget {
 class _MyNavigatorState extends State<MyNavigator> {
   final List<Widget> _pages = [
     const SelectionPage(),
-    const ZodiacDetails(),
+    const ZodiacDetails(1),
     const Settings(),
     const CompatibilityDetails(),
     const CompatibilityChooser()

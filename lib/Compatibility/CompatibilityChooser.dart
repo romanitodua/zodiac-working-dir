@@ -35,6 +35,12 @@ class _CompatibilityChooserState extends State<CompatibilityChooser>
   }
 
   @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: Text('Multiple item in one slide demo')),
