@@ -1,5 +1,5 @@
 
-import 'package:untitled1/Utils/zodiac_classes.dart';
+import 'package:untitled1/Utils/dart_classes/zodiac_classes.dart';
 
 List<ZodiacSign> allSigns = [
   Aries(name: "Aries", dateInterval: "13Mar-20Mar", assetPicture: 'assets/astrology-aries.png', index: 0),

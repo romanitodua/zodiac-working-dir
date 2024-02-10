@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../Utils/compatibility_result.dart';
-import '../Utils/sign_infromation.dart';
+import '../Utils/dart_classes/compatibility_result.dart';
+import '../Utils/dart_classes/sign_infromation.dart';
 
 part 'Provider.g.dart';
 

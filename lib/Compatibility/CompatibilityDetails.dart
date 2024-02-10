@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:untitled1/Networking/Provider.dart';
-import 'package:untitled1/Utils/compatibility_result.dart';
+import 'package:untitled1/Utils/dart_classes/compatibility_result.dart';
 import 'package:untitled1/Utils/constants.dart';
-import 'package:untitled1/Utils/zodiac_classes.dart';
+import 'package:untitled1/Utils/dart_classes/zodiac_classes.dart';
 
 import '../Utils/extensions.dart';
 

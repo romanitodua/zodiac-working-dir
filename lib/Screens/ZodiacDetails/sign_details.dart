@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:untitled1/Networking/Provider.dart';
 import 'package:untitled1/Utils/constants.dart';
-import 'package:untitled1/Utils/sign_infromation.dart';
+import 'package:untitled1/Utils/dart_classes/sign_infromation.dart';
 
 import '../../Utils/extensions.dart';
 

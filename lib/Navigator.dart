@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:untitled1/Compatibility/CompatibilityChooser.dart';
 import 'package:untitled1/Screens/Selection/selection_of_day_sign.dart';
 import 'package:untitled1/Screens/ZodiacDetails/sign_details.dart';
+import 'package:untitled1/home_page/home_page.dart';
 import 'package:untitled1/settings.dart';
 import 'Compatibility/CompatibilityDetails.dart';
 
@@ -15,6 +16,7 @@ class MyNavigator extends StatefulWidget {
 
 class _MyNavigatorState extends State<MyNavigator> {
   final List<Widget> _pages = [
+    const HomePage(),
     const SelectionPage(),
     const SignDetails(1,1),
     const Settings(),
@@ -34,6 +36,7 @@ class _MyNavigatorState extends State<MyNavigator> {
           start_page = index;
         }),
         items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.access_time_filled_rounded),label: "Home"),
           BottomNavigationBarItem(
               icon: Icon(Icons.home), label: "DetailsScreen"),
           BottomNavigationBarItem(icon: Icon(Icons.details), label: "Details"),
