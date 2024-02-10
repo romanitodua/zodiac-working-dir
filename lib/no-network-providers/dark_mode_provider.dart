@@ -1,7 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-part 'test.g.dart';
+part 'dark_mode_provider.g.dart';
 
 
 // dark mode notifier
@@ -21,13 +21,10 @@ class MyNotifier extends _$MyNotifier {
     prefs = await SharedPreferences.getInstance();
     var darkMode = prefs.getBool("darkMode");
     state = darkMode ?? false;
-    print("meore");
   }
 
   void toggle() async {
-    print("called");
     state = !state;
     prefs.setBool("darkMode", state);
-    print(state);
   }
 }

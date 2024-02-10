@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
-import '../../Utils/Extensions.dart';
+import '../../Utils/extensions.dart';
 
 class SelectionPage extends StatefulWidget {
   const SelectionPage({super.key});
@@ -19,9 +19,9 @@ class _SelectionPageState extends State<SelectionPage> with Responsive {
 
   @override
   void initState() {
+    super.initState();
     currentDay = DateTime.now().day;
     selectedDayIndex[currentDay - 1] = true;
-    super.initState();
   }
 
   @override
@@ -33,7 +33,9 @@ class _SelectionPageState extends State<SelectionPage> with Responsive {
             const SliverToBoxAdapter(
                 child: Padding(
                     padding: EdgeInsets.all(10),
-                    child: Text("Select the day"))),
+                    child: Text("Select the day",style: TextStyle(
+                      fontWeight: FontWeight.bold
+                    ),))),
             SliverToBoxAdapter(
               child: SizedBox(
                 height: screenHeight / 14.45,
@@ -74,7 +76,7 @@ class _SelectionPageState extends State<SelectionPage> with Responsive {
             const SliverToBoxAdapter(
                 child: Padding(
                     padding: EdgeInsets.all(10),
-                    child: Text("Select your sign"))),
+                    child: Text("Select your sign",style: TextStyle(fontWeight: FontWeight.bold),))),
             SliverGrid(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,

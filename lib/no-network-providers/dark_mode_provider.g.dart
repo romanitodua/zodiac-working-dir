@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'DarkModeProvider.dart';
+part of 'dark_mode_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$myNotifierHash() => r'1cb9e354aae51cfb7cae850f78f075c6b72cee7a';
+String _$myNotifierHash() => r'4d5f56b3c66fd00c849fdf2f68dafb5bd19d6e39';
 
 /// See also [MyNotifier].
 @ProviderFor(MyNotifier)

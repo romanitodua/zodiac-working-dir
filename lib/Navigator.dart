@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:untitled1/Compatibility/CompatibilityChooser.dart';
-import 'package:untitled1/Screens/Selection/Selection.dart';
-import 'package:untitled1/Screens/HoroscopeDetailsScreen.dart';
-import 'package:untitled1/Screens/ZodiacDetails.dart';
-
+import 'package:untitled1/Screens/Selection/selection_of_day_sign.dart';
+import 'package:untitled1/Screens/ZodiacDetails/sign_details.dart';
+import 'package:untitled1/settings.dart';
 import 'Compatibility/CompatibilityDetails.dart';
-import 'Screens/Settings/Settings.dart';
+
 
 class MyNavigator extends StatefulWidget {
   const MyNavigator({super.key});
@@ -17,9 +16,9 @@ class MyNavigator extends StatefulWidget {
 class _MyNavigatorState extends State<MyNavigator> {
   final List<Widget> _pages = [
     const SelectionPage(),
-    const ZodiacDetails(1),
+    const SignDetails(1,1),
     const Settings(),
-    const CompatibilityDetails(),
+    const CompatibilityDetails(1,1),
     const CompatibilityChooser()
   ];
   int start_page = 0;

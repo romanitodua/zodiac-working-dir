@@ -1,4 +1,4 @@
-class ZodiacDetailProvider {
+class SignInformation {
   String? sign;
   String? descriptionDaily;
   String? descriptionWeekly;
@@ -6,7 +6,7 @@ class ZodiacDetailProvider {
   String? descriptionMonthly;
   String? date;
 
-  ZodiacDetailProvider(
+  SignInformation(
       {this.sign,
         this.descriptionDaily,
         this.descriptionWeekly,
@@ -14,7 +14,7 @@ class ZodiacDetailProvider {
         this.descriptionMonthly,
         this.date});
 
-  ZodiacDetailProvider.fromJson(Map<String, dynamic> json) {
+  SignInformation.fromJson(Map<String, dynamic> json) {
     sign = json['sign'];
     descriptionDaily = json['description_daily'];
     descriptionWeekly = json['description_weekly'];
@@ -24,13 +24,13 @@ class ZodiacDetailProvider {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['sign'] = this.sign;
-    data['description_daily'] = this.descriptionDaily;
-    data['description_weekly'] = this.descriptionWeekly;
-    data['description_yearly'] = this.descriptionYearly;
-    data['description_monthly'] = this.descriptionMonthly;
-    data['date'] = this.date;
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['sign'] = sign;
+    data['description_daily'] = descriptionDaily;
+    data['description_weekly'] = descriptionWeekly;
+    data['description_yearly'] = descriptionYearly;
+    data['description_monthly'] = descriptionMonthly;
+    data['date'] = date;
     return data;
   }
 

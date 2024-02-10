@@ -2,31 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:untitled1/Networking/Provider.dart';
 import 'package:untitled1/Utils/constants.dart';
-import 'package:untitled1/data/ZodiacDetailProvider.dart';
+import 'package:untitled1/Utils/sign_infromation.dart';
 
-import '../Utils/Extensions.dart';
+import '../../Utils/extensions.dart';
 
-class ZodiacDetails extends ConsumerStatefulWidget {
+class SignDetails extends ConsumerStatefulWidget {
   final int signIndex;
+  final int day;
 
-  const ZodiacDetails(this.signIndex, {super.key});
+  const SignDetails(this.signIndex, this.day, {super.key});
 
   @override
   ConsumerState createState() => _ZodiacDetailsState();
 }
 
-class _ZodiacDetailsState extends ConsumerState<ZodiacDetails> with Responsive {
+class _ZodiacDetailsState extends ConsumerState<SignDetails> with Responsive {
   late int choiceChipSelected;
 
   @override
   void initState() {
-    choiceChipSelected = 0;
     super.initState();
+    choiceChipSelected = 0;
   }
 
   @override
   Widget build(BuildContext context) {
-    AsyncValue<ZodiacDetailProvider> zodiac = ref.watch(fetchDetailsProvider);
+    AsyncValue<SignInformation> zodiac = ref.watch(fetchDetailsProvider(sign: widget.signIndex,day: widget.day));
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -53,7 +54,7 @@ class _ZodiacDetailsState extends ConsumerState<ZodiacDetails> with Responsive {
               )),
               Center(
                   child: Text(
-                allSigns[widget.signIndex].date,
+                allSigns[widget.signIndex].dateInterval,
                 style: Theme.of(context)
                     .textTheme
                     .bodyLarge
