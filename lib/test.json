@@ -1,12 +1,11 @@
 {
-  "first_sign": "aries",
-  "second_sign": "aries",
-  "relationships_perc": "",
-  "career_work_perc": "",
-  "marriage_perc": "",
-  "friendship_perc": "",
-  "relationship_disc": "",
-  "career_work_disc": "",
-  "marriage_disc": "",
-  "friendship_disc": ""
+  "sign": "",
+  "today_love": "",
+  "today_career": "",
+  "today_health": "",
+  "today_description": "",
+  "year_description": "",
+  "year_health": "",
+  "year_career": "",
+  "year_love": ""
 }

@@ -71,38 +71,40 @@ class _CompatibilityDetailsState extends ConsumerState<CompatibilityDetails>
                     curve: Curves.elasticIn,
                     duration: const Duration(seconds: 2), // Animation duration
                     top: initialPosition.value,
-                    child: Container(
-                      width: screenWidth,
-                      height: screenHeight * 0.1,
-                      decoration: const BoxDecoration(
-                          color: Colors.grey,
-                          borderRadius: BorderRadius.all(Radius.circular(10))),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Column(
-                            children: [
-                              Expanded(
-                                  child: Image.asset(
-                                      firstSign.assetPicture)),
-                              Text(firstSign.name),
-                              Text(firstSign.dateInterval)
-                            ],
-                          ),
-                          const Icon(
-                            Icons.plus_one,
-                            size: 30,
-                          ),
-                          Column(
-                            children: [
-                              Expanded(
-                                  child: Image.asset(
-                                      secondSign.assetPicture)),
-                              Text(secondSign.name),
-                              Text(secondSign.dateInterval)
-                            ],
-                          ),
-                        ],
+                    child: Card(
+                      elevation: 2,
+                      child: Container(
+                        width: screenWidth,
+                        height: screenHeight * 0.1,
+                        decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(10))),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Column(
+                              children: [
+                                Expanded(
+                                    child: Image.asset(
+                                        firstSign.assetPicture)),
+                                Text(firstSign.name),
+                                Text(firstSign.dateInterval)
+                              ],
+                            ),
+                            const Icon(
+                              Icons.plus_one,
+                              size: 30,
+                            ),
+                            Column(
+                              children: [
+                                Expanded(
+                                    child: Image.asset(
+                                        secondSign.assetPicture)),
+                                Text(secondSign.name),
+                                Text(secondSign.dateInterval)
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   );
@@ -179,6 +181,6 @@ class _CompatibilityDetailsState extends ConsumerState<CompatibilityDetails>
           ));
         },
         error: (error, stacktrace) => const Text("print('');"),
-        loading: () => const CircularProgressIndicator());
+        loading: () => Center(child: const CircularProgressIndicator()));
   }
 }

@@ -3,12 +3,21 @@ class ZodiacSign {
   String dateInterval;
   String assetPicture;
   int index;
+  String sunSign;
+  String ascendant;
+  String element;
+  String moonSign;
 
-  ZodiacSign(
-      {required this.name,
-      required this.dateInterval,
-      required this.assetPicture,
-      required this.index});
+  ZodiacSign({
+    required this.name,
+    required this.dateInterval,
+    required this.assetPicture,
+    required this.index,
+    required this.ascendant,
+    required this.element,
+    required this.moonSign,
+    required this.sunSign,
+  });
 }
 
 class Aries extends ZodiacSign {
@@ -16,7 +25,11 @@ class Aries extends ZodiacSign {
       {required super.name,
       required super.assetPicture,
       required super.index,
-      required super.dateInterval});
+      required super.dateInterval,
+      required super.ascendant,
+      required super.element,
+      required super.moonSign,
+      required super.sunSign});
 }
 
 class Taurus extends ZodiacSign {
@@ -24,7 +37,11 @@ class Taurus extends ZodiacSign {
       {required super.name,
       required super.assetPicture,
       required super.index,
-      required super.dateInterval});
+      required super.dateInterval,
+      required super.ascendant,
+      required super.element,
+      required super.moonSign,
+      required super.sunSign});
 }
 
 class Gemini extends ZodiacSign {
@@ -32,7 +49,11 @@ class Gemini extends ZodiacSign {
       {required super.name,
       required super.assetPicture,
       required super.index,
-      required super.dateInterval});
+      required super.dateInterval,
+      required super.ascendant,
+      required super.element,
+      required super.moonSign,
+      required super.sunSign});
 }
 
 class Cancer extends ZodiacSign {
@@ -40,7 +61,11 @@ class Cancer extends ZodiacSign {
       {required super.name,
       required super.assetPicture,
       required super.index,
-      required super.dateInterval});
+      required super.dateInterval,
+      required super.ascendant,
+      required super.element,
+      required super.moonSign,
+      required super.sunSign});
 }
 
 class Leo extends ZodiacSign {
@@ -48,7 +73,11 @@ class Leo extends ZodiacSign {
       {required super.name,
       required super.assetPicture,
       required super.index,
-      required super.dateInterval});
+      required super.dateInterval,
+      required super.ascendant,
+      required super.element,
+      required super.moonSign,
+      required super.sunSign});
 }
 
 class Virgo extends ZodiacSign {
@@ -56,7 +85,11 @@ class Virgo extends ZodiacSign {
       {required super.name,
       required super.assetPicture,
       required super.index,
-      required super.dateInterval});
+      required super.dateInterval,
+      required super.ascendant,
+      required super.element,
+      required super.moonSign,
+      required super.sunSign});
 }
 
 class Libra extends ZodiacSign {
@@ -64,7 +97,11 @@ class Libra extends ZodiacSign {
       {required super.name,
       required super.assetPicture,
       required super.index,
-      required super.dateInterval});
+      required super.dateInterval,
+      required super.ascendant,
+      required super.element,
+      required super.moonSign,
+      required super.sunSign});
 }
 
 class Scorpio extends ZodiacSign {
@@ -72,7 +109,11 @@ class Scorpio extends ZodiacSign {
       {required super.name,
       required super.assetPicture,
       required super.index,
-      required super.dateInterval});
+      required super.dateInterval,
+      required super.ascendant,
+      required super.element,
+      required super.moonSign,
+      required super.sunSign});
 }
 
 class Sagittarius extends ZodiacSign {
@@ -80,7 +121,11 @@ class Sagittarius extends ZodiacSign {
       {required super.name,
       required super.assetPicture,
       required super.index,
-      required super.dateInterval});
+      required super.dateInterval,
+      required super.ascendant,
+      required super.element,
+      required super.moonSign,
+      required super.sunSign});
 }
 
 class Capricorn extends ZodiacSign {
@@ -88,7 +133,11 @@ class Capricorn extends ZodiacSign {
       {required super.name,
       required super.assetPicture,
       required super.index,
-      required super.dateInterval});
+      required super.dateInterval,
+      required super.ascendant,
+      required super.element,
+      required super.moonSign,
+      required super.sunSign});
 }
 
 class Aquarius extends ZodiacSign {
@@ -96,7 +145,11 @@ class Aquarius extends ZodiacSign {
       {required super.name,
       required super.assetPicture,
       required super.index,
-      required super.dateInterval});
+      required super.dateInterval,
+      required super.ascendant,
+      required super.element,
+      required super.moonSign,
+      required super.sunSign});
 }
 
 class Pisces extends ZodiacSign {
@@ -104,5 +157,9 @@ class Pisces extends ZodiacSign {
       {required super.name,
       required super.assetPicture,
       required super.index,
-      required super.dateInterval});
+      required super.dateInterval,
+      required super.ascendant,
+      required super.element,
+      required super.moonSign,
+      required super.sunSign});
 }

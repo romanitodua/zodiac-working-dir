@@ -22,16 +22,4 @@ class SignInformation {
     descriptionMonthly = json['description_monthly'];
     date = json['date'];
   }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['sign'] = sign;
-    data['description_daily'] = descriptionDaily;
-    data['description_weekly'] = descriptionWeekly;
-    data['description_yearly'] = descriptionYearly;
-    data['description_monthly'] = descriptionMonthly;
-    data['date'] = date;
-    return data;
-  }
-
 }

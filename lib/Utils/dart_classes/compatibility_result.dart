@@ -35,18 +35,4 @@ class CompatibilityResult {
     friendshipDisc = json['friendship_disc'];
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['first_sign'] = firstSign;
-    data['second_sign'] = secondSign;
-    data['relationships_perc'] = relationshipsPerc;
-    data['career_work_perc'] = careerWorkPerc;
-    data['marriage_perc'] = marriagePerc;
-    data['friendship_perc'] = friendshipPerc;
-    data['relationship_disc'] = relationshipDisc;
-    data['career_work_disc'] = careerWorkDisc;
-    data['marriage_disc'] = marriageDisc;
-    data['friendship_disc'] = friendshipDisc;
-    return data;
-  }
 }

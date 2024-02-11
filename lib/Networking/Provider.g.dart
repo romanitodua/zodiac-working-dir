@@ -321,5 +321,135 @@ class _FetchCompatibilityProviderElement
   @override
   int get secondSign => (origin as FetchCompatibilityProvider).secondSign;
 }
+
+String _$fetchHomePageContentHash() =>
+    r'efd734313b89f7d4a97c94ebc31578fb07b4e762';
+
+/// See also [fetchHomePageContent].
+@ProviderFor(fetchHomePageContent)
+const fetchHomePageContentProvider = FetchHomePageContentFamily();
+
+/// See also [fetchHomePageContent].
+class FetchHomePageContentFamily extends Family<AsyncValue<HomePageContent>> {
+  /// See also [fetchHomePageContent].
+  const FetchHomePageContentFamily();
+
+  /// See also [fetchHomePageContent].
+  FetchHomePageContentProvider call({
+    required int sign,
+  }) {
+    return FetchHomePageContentProvider(
+      sign: sign,
+    );
+  }
+
+  @override
+  FetchHomePageContentProvider getProviderOverride(
+    covariant FetchHomePageContentProvider provider,
+  ) {
+    return call(
+      sign: provider.sign,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'fetchHomePageContentProvider';
+}
+
+/// See also [fetchHomePageContent].
+class FetchHomePageContentProvider extends FutureProvider<HomePageContent> {
+  /// See also [fetchHomePageContent].
+  FetchHomePageContentProvider({
+    required int sign,
+  }) : this._internal(
+          (ref) => fetchHomePageContent(
+            ref as FetchHomePageContentRef,
+            sign: sign,
+          ),
+          from: fetchHomePageContentProvider,
+          name: r'fetchHomePageContentProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$fetchHomePageContentHash,
+          dependencies: FetchHomePageContentFamily._dependencies,
+          allTransitiveDependencies:
+              FetchHomePageContentFamily._allTransitiveDependencies,
+          sign: sign,
+        );
+
+  FetchHomePageContentProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.sign,
+  }) : super.internal();
+
+  final int sign;
+
+  @override
+  Override overrideWith(
+    FutureOr<HomePageContent> Function(FetchHomePageContentRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: FetchHomePageContentProvider._internal(
+        (ref) => create(ref as FetchHomePageContentRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        sign: sign,
+      ),
+    );
+  }
+
+  @override
+  FutureProviderElement<HomePageContent> createElement() {
+    return _FetchHomePageContentProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is FetchHomePageContentProvider && other.sign == sign;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, sign.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+mixin FetchHomePageContentRef on FutureProviderRef<HomePageContent> {
+  /// The parameter `sign` of this provider.
+  int get sign;
+}
+
+class _FetchHomePageContentProviderElement
+    extends FutureProviderElement<HomePageContent>
+    with FetchHomePageContentRef {
+  _FetchHomePageContentProviderElement(super.provider);
+
+  @override
+  int get sign => (origin as FetchHomePageContentProvider).sign;
+}
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
