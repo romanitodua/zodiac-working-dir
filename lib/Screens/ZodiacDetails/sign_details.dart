@@ -101,7 +101,25 @@ class _ZodiacDetailsState extends ConsumerState<SignDetails> with Responsive {
               ),
               Consumer(builder: (builder, context, ref) {
                 return zodiac.when(
-                  data: (data) => Text(data.descriptionDaily!),
+                  data: (data) {
+                    Widget result = const Text("");
+                    switch (choiceChipSelected) {
+                      case 0:
+                        result = Text(data.descriptionDaily!);
+                        break;
+                      case 1:
+                        result = Text(data.descriptionWeekly!);
+                        break;
+                      case 2:
+                        result = Text(data.descriptionMonthly!);
+                        break;
+                      case 3:
+                        result = Text(data.descriptionYearly!);
+                        break;
+                    }
+
+                    return Card(child: result);
+                  },
                   error: (error, stack) =>
                       const Text('Oops, something unexpected happened'),
                   loading: () =>
