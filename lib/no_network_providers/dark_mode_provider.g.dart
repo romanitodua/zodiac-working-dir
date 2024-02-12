@@ -6,7 +6,7 @@ part of 'dark_mode_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$myNotifierHash() => r'4d5f56b3c66fd00c849fdf2f68dafb5bd19d6e39';
+String _$myNotifierHash() => r'0b7352ef5673ba3ac01e4f9dd641f9f2e8b6300e';
 
 /// See also [MyNotifier].
 @ProviderFor(MyNotifier)

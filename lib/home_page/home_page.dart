@@ -22,7 +22,7 @@ class _HomePageState extends ConsumerState<HomePage>
     with SingleTickerProviderStateMixin, Responsive {
   late TabController tabController;
   late String formattedDate;
-  ZodiacSign chosenSign = allSigns[0];
+  late ZodiacSign chosenSign;
 
   @override
   void initState() {
@@ -41,23 +41,21 @@ class _HomePageState extends ConsumerState<HomePage>
   @override
   Widget build(BuildContext context) {
     int defaultSign = ref.watch(defaultSignProvider);
-    print(defaultSign);
+
     if (0 > defaultSign) {
+      chosenSign = allSigns[0];
       print("aq");
       return defaultSignNotChosen(false);
     }
+    chosenSign = allSigns[defaultSign];
 
-    print("called");
     AsyncValue<HomePageContent> signContents =
         ref.watch(fetchHomePageContentProvider(sign: defaultSign));
     return signContents.when(data: (data) {
-      print("movedit aqa");
       return signChosenDisplayContent(data);
     }, error: (error, stack) {
-      print(error);
       return defaultSignNotChosen(true);
     }, loading: () {
-      print("loading");
       return defaultSignNotChosen(true);
     });
   }
@@ -118,13 +116,13 @@ class _HomePageState extends ConsumerState<HomePage>
     );
   }
 
-  Widget defaultSignNotChosen(bool loading) {
+  Widget defaultSignNotChosen(bool defaultChosen) {
     return SafeArea(
       child: Scaffold(
         appBar: myAppBar(),
         body: Column(
           children: [
-            cardForNoSignChosen(loading),
+            defaultChosen ? cardForSignChosen() : cardForNoSignChosen(),
             const SizedBox(
               height: 6,
             ),
@@ -204,7 +202,7 @@ class _HomePageState extends ConsumerState<HomePage>
                   animation: true,
                   percent: 0.1,
                   center: const Text(
-                    "?% \n Health",
+                    "Health",
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
                   ),
@@ -219,7 +217,7 @@ class _HomePageState extends ConsumerState<HomePage>
                   animation: true,
                   percent: 0.1,
                   center: const Text(
-                    "?% \n Career",
+                    "Career",
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
                   ),
@@ -234,7 +232,7 @@ class _HomePageState extends ConsumerState<HomePage>
                   animation: true,
                   percent: 0.1,
                   center: const Text(
-                    "?% \n Health",
+                    "Health",
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
                   ),
@@ -307,8 +305,8 @@ class _HomePageState extends ConsumerState<HomePage>
                       : double.parse(data.yearCareer!) / 100,
                   center: Text(
                     today
-                        ? "${data.todayCareer!}\nCareer"
-                        : "${data.yearCareer!}\nCareer",
+                        ? "${data.todayCareer!}%\nCareer"
+                        : "${data.yearCareer!}%\nCareer",
                     style: const TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 20.0),
                   ),
@@ -326,8 +324,8 @@ class _HomePageState extends ConsumerState<HomePage>
                       : double.parse(data.yearHealth!) / 100,
                   center: Text(
                     today
-                        ? "${data.todayHealth!}\nHealth"
-                        : "${data.yearHealth!}\nHealth",
+                        ? "${data.todayHealth!}%\nHealth"
+                        : "${data.yearHealth!}%\nHealth",
                     style: const TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 20.0),
                   ),
@@ -340,11 +338,13 @@ class _HomePageState extends ConsumerState<HomePage>
                   radius: screenWidth / 7,
                   lineWidth: 13.0,
                   animation: true,
-                  percent: today ? double.parse(data.todayLove!) / 100 : double.parse(data.yearLove!) / 100,
+                  percent: today
+                      ? double.parse(data.todayLove!) / 100
+                      : double.parse(data.yearLove!) / 100,
                   center: Text(
                     today
-                        ? "${data.todayLove!}\nLove"
-                        : "${data.yearLove!}\nLove",
+                        ? "${data.todayLove!}%\nLove"
+                        : "${data.yearLove!}%\nLove",
                     style: const TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 20.0),
                   ),
@@ -390,6 +390,7 @@ class _HomePageState extends ConsumerState<HomePage>
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           CircleAvatar(
+            backgroundColor: Colors.white,
             backgroundImage: AssetImage(chosenSign.assetPicture),
             radius: 48,
           ),
@@ -448,15 +449,15 @@ class _HomePageState extends ConsumerState<HomePage>
     );
   }
 
-  Widget cardForNoSignChosen(bool loading) {
-    return Card(
+  Widget cardForNoSignChosen() {
+    return const Card(
       elevation: 2,
       shadowColor: Colors.grey,
       child: Row(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const CircleAvatar(
+          CircleAvatar(
             backgroundImage: AssetImage('assets/question.jpg'),
             radius: 48,
           ),
@@ -464,22 +465,22 @@ class _HomePageState extends ConsumerState<HomePage>
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text("Sun Sign"),
-                const Divider(
+                Text("Sun Sign"),
+                Divider(
                   thickness: 1,
                   height: 1,
                   color: Colors.white,
                 ),
-                Text(loading ? "None" : chosenSign.sunSign),
+                Text("None"),
                 Column(
                   children: [
-                    const Text("Moon Sign"),
-                    const Divider(
+                    Text("Moon Sign"),
+                    Divider(
                       thickness: 1,
                       height: 1,
                       color: Colors.white,
                     ),
-                    Text(loading ? "None" : chosenSign.moonSign)
+                    Text("None")
                   ],
                 )
               ],
@@ -489,22 +490,22 @@ class _HomePageState extends ConsumerState<HomePage>
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text("Ascendant"),
-                const Divider(
+                Text("Ascendant"),
+                Divider(
                   thickness: 1,
                   height: 1,
                   color: Colors.white,
                 ),
-                Text(loading ? "None" : chosenSign.ascendant),
+                Text("None"),
                 Column(
                   children: [
-                    const Text("Element"),
-                    const Divider(
+                    Text("Element"),
+                    Divider(
                       thickness: 1,
                       height: 1,
                       color: Colors.white,
                     ),
-                    Text(loading ? "None" : chosenSign.element)
+                    Text("None")
                   ],
                 )
               ],

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:untitled1/Compatibility/CompatibilityDetails.dart';
 import 'package:untitled1/Utils/extensions.dart';
 import 'package:untitled1/Utils/constants.dart';
 
@@ -11,7 +13,8 @@ class CompatibilityChooser extends StatefulWidget {
 
 class _CompatibilityChooserState extends State<CompatibilityChooser>
     with Responsive {
-  PageController pageController = PageController(viewportFraction: 0.8);
+  PageController firstPageController = PageController(viewportFraction: 0.8);
+  PageController secondPageController = PageController(viewportFraction: 0.8);
 
   List<Widget> children =
       allSigns.map((e) => Image.asset(e.assetPicture)).toList();
@@ -23,48 +26,48 @@ class _CompatibilityChooserState extends State<CompatibilityChooser>
 
   @override
   void dispose() {
-    pageController.dispose();
+    firstPageController.dispose();
+    secondPageController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text('Align the two signs below each other')),
+        appBar:
+            AppBar(title: const Text('Align the two signs below each other')),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Expanded(
               child: PageView(
-                controller: pageController,
+                controller: firstPageController,
                 children: children,
               ),
             ),
-            Expanded(
+            const Expanded(
                 child: Center(
-              child: Container(
-                width: 100,
-                height: 100,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.blueGrey,
-                ),
-                child: const Center(
-                    child: Text(
-                  "+",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
-                )),
-              ),
+              child: Center(
+                  child: FaIcon(FontAwesomeIcons.plus,size: 50,)),
             )),
             Expanded(
               child: PageView(
+                controller: secondPageController,
                 children: children,
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(5),
               child: ElevatedButton(
-                onPressed: () => {},
+                onPressed: () => {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => CompatibilityDetails(
+                              firstPageController.page!.floor(), secondPageController.page!.floor()
+                            )),
+                  )
+                },
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white,
                   backgroundColor: Colors.purple,

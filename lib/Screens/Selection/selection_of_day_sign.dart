@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
+import 'package:untitled1/Screens/ZodiacDetails/sign_details.dart';
+import 'package:untitled1/Utils/constants.dart';
 
 import '../../Utils/extensions.dart';
 
@@ -13,9 +15,6 @@ class SelectionPage extends StatefulWidget {
 class _SelectionPageState extends State<SelectionPage> with Responsive {
   late int currentDay;
   List<bool> selectedDayIndex = List.generate(31, (index) => false);
-  List<bool> selectedSignIndex = List.generate(12, (index) => false);
-  late int selectedSign;
-
 
   @override
   void initState() {
@@ -33,9 +32,10 @@ class _SelectionPageState extends State<SelectionPage> with Responsive {
             const SliverToBoxAdapter(
                 child: Padding(
                     padding: EdgeInsets.all(10),
-                    child: Text("Select the day",style: TextStyle(
-                      fontWeight: FontWeight.bold
-                    ),))),
+                    child: Text(
+                      "Select the day",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ))),
             SliverToBoxAdapter(
               child: SizedBox(
                 height: screenHeight / 14.45,
@@ -64,7 +64,8 @@ class _SelectionPageState extends State<SelectionPage> with Responsive {
                                     style: TextStyle(
                                         color: selectedDayIndex[index]
                                             ? Colors.black
-                                            : const Color.fromRGBO(113, 113, 117, 1),
+                                            : const Color.fromRGBO(
+                                                113, 113, 117, 1),
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold))),
                           ),
@@ -76,37 +77,37 @@ class _SelectionPageState extends State<SelectionPage> with Responsive {
             const SliverToBoxAdapter(
                 child: Padding(
                     padding: EdgeInsets.all(10),
-                    child: Text("Select your sign",style: TextStyle(fontWeight: FontWeight.bold),))),
+                    child: Text(
+                      "Select your sign",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ))),
             SliverGrid(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
               ),
               delegate: SliverChildBuilderDelegate(
                 (context, index) => Card(
-                  shape: selectedSignIndex[index]
-                      ? const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          side: BorderSide(color: Colors.white))
-                      : null,
                   clipBehavior: Clip.hardEdge,
                   child: InkWell(
                     onTap: () {
-                      setState(() {
-                        selectedSignIndex.fillRange(0, 12, false);
-                        selectedSignIndex[index] = true;
-                        selectedSign = index;
-                      });
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                SignDetails(index, currentDay)),
+                      );
                     },
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       // Align content with spacing
                       children: [
-                        const Text('Text 1',
-                            style: TextStyle(
+                        Text(allSigns[index].name,
+                            style: const TextStyle(
                                 fontSize: 18, fontWeight: FontWeight.bold)),
-                        const Text('Text 2', style: TextStyle(fontSize: 16)),
+                        Text(allSigns[index].dateInterval,
+                            style: const TextStyle(fontSize: 16)),
                         Expanded(
-                            child: Image.asset('assets/astrology-aries.png')),
+                            child: Image.asset(allSigns[index].assetPicture)),
                         // Photo at the bottom
                       ],
                     ),

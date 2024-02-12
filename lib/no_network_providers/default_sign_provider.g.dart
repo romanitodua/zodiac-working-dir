@@ -6,12 +6,11 @@ part of 'default_sign_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$defaultSignHash() => r'980266e9aa38b6f40f76c94d8c36f5c9fc71facb';
+String _$defaultSignHash() => r'570bce7d182a71290ca19666cc6cf0edc8baebd3';
 
 /// See also [DefaultSign].
 @ProviderFor(DefaultSign)
-final defaultSignProvider =
-    AutoDisposeNotifierProvider<DefaultSign, int>.internal(
+final defaultSignProvider = NotifierProvider<DefaultSign, int>.internal(
   DefaultSign.new,
   name: r'defaultSignProvider',
   debugGetCreateSourceHash:
@@ -20,6 +19,6 @@ final defaultSignProvider =
   allTransitiveDependencies: null,
 );
 
-typedef _$DefaultSign = AutoDisposeNotifier<int>;
+typedef _$DefaultSign = Notifier<int>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

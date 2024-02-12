@@ -27,9 +27,17 @@ class _ZodiacDetailsState extends ConsumerState<SignDetails> with Responsive {
 
   @override
   Widget build(BuildContext context) {
-    AsyncValue<SignInformation> zodiac = ref.watch(fetchDetailsProvider(sign: widget.signIndex,day: widget.day));
+    AsyncValue<SignInformation> zodiac = ref
+        .watch(fetchDetailsProvider(sign: widget.signIndex, day: widget.day));
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(Icons.arrow_back)),
+        ),
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
