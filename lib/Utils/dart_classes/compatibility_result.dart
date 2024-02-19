@@ -34,5 +34,4 @@ class CompatibilityResult {
     marriageDisc = json['marriage_disc'];
     friendshipDisc = json['friendship_disc'];
   }
-
 }

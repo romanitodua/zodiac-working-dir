@@ -5,7 +5,6 @@ import 'package:untitled1/Screens/Selection/selection_of_day_sign.dart';
 import 'package:untitled1/home_page/home_page.dart';
 import 'package:untitled1/settings_page/settings.dart';
 
-
 class MyNavigator extends StatefulWidget {
   const MyNavigator({super.key});
 
@@ -15,6 +14,7 @@ class MyNavigator extends StatefulWidget {
 
 class _MyNavigatorState extends State<MyNavigator> {
   final List<Widget> _pages = [
+    const Testing(),
     const HomePage(),
     const SelectionPage(),
     const CompatibilityChooser(),
@@ -34,17 +34,30 @@ class _MyNavigatorState extends State<MyNavigator> {
         }),
         items: const [
           BottomNavigationBarItem(
-              icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon:FaIcon(FontAwesomeIcons.wpexplorer), label: "Explore"),
+              icon: Icon(Icons.transfer_within_a_station), label: "testing"),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(
-              icon: FaIcon(FontAwesomeIcons.puzzlePiece
-              ),
+              icon: FaIcon(FontAwesomeIcons.wpexplorer), label: "Explore"),
+          BottomNavigationBarItem(
+              icon: FaIcon(FontAwesomeIcons.puzzlePiece),
               label: "Compatibility"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.settings), label: "Settings")
+          BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings")
         ],
       ),
       body: _pages[start_page],
+    );
+  }
+}
+
+class Testing extends StatelessWidget {
+  const Testing({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: ElevatedButton(onPressed: () {}, child: Text("click")),
+      ),
     );
   }
 }

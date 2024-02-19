@@ -1,0 +1,158 @@
+{
+  "Aries": [
+    {
+      "second_sign": 1,
+      "friendship_perc": "filler text filler text",
+      "friendship_desc": "filler text filler text",
+      "marriage_perc": "filler text filler text",
+      "marriage_desc": "filler text filler text",
+      "careerWork_desc": "filler text filler text",
+      "careerWork_perc": "filler text filler text",
+      "relationship_perc": "filler text filler text",
+      "relationship_desc": "filler text filler text"
+    }
+  ],
+  "Taurus": [
+    {
+      "second_sign": 1,
+      "friendship_perc": "filler text filler text",
+      "friendship_desc": "filler text filler text",
+      "marriage_perc": "filler text filler text",
+      "marriage_desc": "filler text filler text",
+      "careerWork_desc": "filler text filler text",
+      "careerWork_perc": "filler text filler text",
+      "relationship_perc": "filler text filler text",
+      "relationship_desc": "filler text filler text"
+    }
+  ],
+  "Libra": [
+    {
+      "second_sign": 1,
+      "friendship_perc": "filler text filler text",
+      "friendship_desc": "filler text filler text",
+      "marriage_perc": "filler text filler text",
+      "marriage_desc": "filler text filler text",
+      "careerWork_desc": "filler text filler text",
+      "careerWork_perc": "filler text filler text",
+      "relationship_perc": "filler text filler text",
+      "relationship_desc": "filler text filler text"
+    }
+  ],
+  "Cancer": [
+    {
+      "second_sign": 1,
+      "friendship_perc": "filler text filler text",
+      "friendship_desc": "filler text filler text",
+      "marriage_perc": "filler text filler text",
+      "marriage_desc": "filler text filler text",
+      "careerWork_desc": "filler text filler text",
+      "careerWork_perc": "filler text filler text",
+      "relationship_perc": "filler text filler text",
+      "relationship_desc": "filler text filler text"
+    }
+  ],
+  "Scorpio": [
+    {
+      "second_sign": 1,
+      "friendship_perc": "filler text filler text",
+      "friendship_desc": "filler text filler text",
+      "marriage_perc": "filler text filler text",
+      "marriage_desc": "filler text filler text",
+      "careerWork_desc": "filler text filler text",
+      "careerWork_perc": "filler text filler text",
+      "relationship_perc": "filler text filler text",
+      "relationship_desc": "filler text filler text"
+    }
+  ],
+  "Leo": [
+    {
+      "second_sign": 1,
+      "friendship_perc": "filler text filler text",
+      "friendship_desc": "filler text filler text",
+      "marriage_perc": "filler text filler text",
+      "marriage_desc": "filler text filler text",
+      "careerWork_desc": "filler text filler text",
+      "careerWork_perc": "filler text filler text",
+      "relationship_perc": "filler text filler text",
+      "relationship_desc": "filler text filler text"
+    }
+  ],
+  "Virgo": [
+    {
+      "second_sign": 1,
+      "friendship_perc": "filler text filler text",
+      "friendship_desc": "filler text filler text",
+      "marriage_perc": "filler text filler text",
+      "marriage_desc": "filler text filler text",
+      "careerWork_desc": "filler text filler text",
+      "careerWork_perc": "filler text filler text",
+      "relationship_perc": "filler text filler text",
+      "relationship_desc": "filler text filler text"
+    }
+  ],
+  "Aquarius": [
+    {
+      "second_sign": 1,
+      "friendship_perc": "filler text filler text",
+      "friendship_desc": "filler text filler text",
+      "marriage_perc": "filler text filler text",
+      "marriage_desc": "filler text filler text",
+      "careerWork_desc": "filler text filler text",
+      "careerWork_perc": "filler text filler text",
+      "relationship_perc": "filler text filler text",
+      "relationship_desc": "filler text filler text"
+    }
+  ],
+  "Gemini": [
+    {
+      "second_sign": 1,
+      "friendship_perc": "filler text filler text",
+      "friendship_desc": "filler text filler text",
+      "marriage_perc": "filler text filler text",
+      "marriage_desc": "filler text filler text",
+      "careerWork_desc": "filler text filler text",
+      "careerWork_perc": "filler text filler text",
+      "relationship_perc": "filler text filler text",
+      "relationship_desc": "filler text filler text"
+    }
+  ],
+  "Sagittarius": [
+    {
+      "second_sign": 1,
+      "friendship_perc": "filler text filler text",
+      "friendship_desc": "filler text filler text",
+      "marriage_perc": "filler text filler text",
+      "marriage_desc": "filler text filler text",
+      "careerWork_desc": "filler text filler text",
+      "careerWork_perc": "filler text filler text",
+      "relationship_perc": "filler text filler text",
+      "relationship_desc": "filler text filler text"
+    }
+  ],
+  "Pisces": [
+    {
+      "second_sign": 1,
+      "friendship_perc": "filler text filler text",
+      "friendship_desc": "filler text filler text",
+      "marriage_perc": "filler text filler text",
+      "marriage_desc": "filler text filler text",
+      "careerWork_desc": "filler text filler text",
+      "careerWork_perc": "filler text filler text",
+      "relationship_perc": "filler text filler text",
+      "relationship_desc": "filler text filler text"
+    }
+  ],
+  "Capricorn": [
+    {
+      "second_sign": 1,
+      "friendship_perc": "filler text filler text",
+      "friendship_desc": "filler text filler text",
+      "marriage_perc": "filler text filler text",
+      "marriage_desc": "filler text filler text",
+      "careerWork_desc": "filler text filler text",
+      "careerWork_perc": "filler text filler text",
+      "relationship_perc": "filler text filler text",
+      "relationship_desc": "filler text filler text"
+    }
+  ]
+}
