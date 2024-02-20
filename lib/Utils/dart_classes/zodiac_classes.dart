@@ -1,4 +1,4 @@
-class ZodiacSign {
+class OfflineZodiacData {
   String name;
   String dateInterval;
   String assetPicture;
@@ -8,7 +8,7 @@ class ZodiacSign {
   String element;
   String moonSign;
 
-  ZodiacSign({
+  OfflineZodiacData({
     required this.name,
     required this.dateInterval,
     required this.assetPicture,
@@ -20,7 +20,7 @@ class ZodiacSign {
   });
 }
 
-class Aries extends ZodiacSign {
+class Aries extends OfflineZodiacData {
   Aries(
       {required super.name,
         required super.assetPicture,
@@ -32,7 +32,7 @@ class Aries extends ZodiacSign {
         required super.sunSign});
 }
 
-class Taurus extends ZodiacSign {
+class Taurus extends OfflineZodiacData {
   Taurus(
       {required super.name,
         required super.assetPicture,
@@ -44,7 +44,7 @@ class Taurus extends ZodiacSign {
         required super.sunSign});
 }
 
-class Gemini extends ZodiacSign {
+class Gemini extends OfflineZodiacData {
   Gemini(
       {required super.name,
         required super.assetPicture,
@@ -56,7 +56,7 @@ class Gemini extends ZodiacSign {
         required super.sunSign});
 }
 
-class Cancer extends ZodiacSign {
+class Cancer extends OfflineZodiacData {
   Cancer(
       {required super.name,
         required super.assetPicture,
@@ -68,7 +68,7 @@ class Cancer extends ZodiacSign {
         required super.sunSign});
 }
 
-class Leo extends ZodiacSign {
+class Leo extends OfflineZodiacData {
   Leo(
       {required super.name,
         required super.assetPicture,
@@ -80,7 +80,7 @@ class Leo extends ZodiacSign {
         required super.sunSign});
 }
 
-class Virgo extends ZodiacSign {
+class Virgo extends OfflineZodiacData {
   Virgo(
       {required super.name,
         required super.assetPicture,
@@ -92,7 +92,7 @@ class Virgo extends ZodiacSign {
         required super.sunSign});
 }
 
-class Libra extends ZodiacSign {
+class Libra extends OfflineZodiacData {
   Libra(
       {required super.name,
         required super.assetPicture,
@@ -104,7 +104,7 @@ class Libra extends ZodiacSign {
         required super.sunSign});
 }
 
-class Scorpio extends ZodiacSign {
+class Scorpio extends OfflineZodiacData {
   Scorpio(
       {required super.name,
         required super.assetPicture,
@@ -116,7 +116,7 @@ class Scorpio extends ZodiacSign {
         required super.sunSign});
 }
 
-class Sagittarius extends ZodiacSign {
+class Sagittarius extends OfflineZodiacData {
   Sagittarius(
       {required super.name,
         required super.assetPicture,
@@ -128,7 +128,7 @@ class Sagittarius extends ZodiacSign {
         required super.sunSign});
 }
 
-class Capricorn extends ZodiacSign {
+class Capricorn extends OfflineZodiacData {
   Capricorn(
       {required super.name,
         required super.assetPicture,
@@ -140,7 +140,7 @@ class Capricorn extends ZodiacSign {
         required super.sunSign});
 }
 
-class Aquarius extends ZodiacSign {
+class Aquarius extends OfflineZodiacData {
   Aquarius(
       {required super.name,
         required super.assetPicture,
@@ -152,7 +152,7 @@ class Aquarius extends ZodiacSign {
         required super.sunSign});
 }
 
-class Pisces extends ZodiacSign {
+class Pisces extends OfflineZodiacData {
   Pisces(
       {required super.name,
         required super.assetPicture,

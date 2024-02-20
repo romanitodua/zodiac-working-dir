@@ -22,7 +22,7 @@ class _HomePageState extends ConsumerState<HomePage>
     with SingleTickerProviderStateMixin, Responsive {
   late TabController tabController;
   late String formattedDate;
-  late ZodiacSign chosenSign;
+  late OfflineZodiacData chosenSign;
 
   @override
   void initState() {

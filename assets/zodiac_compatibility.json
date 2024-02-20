@@ -1,5 +1,5 @@
 {
-  "Aries": [
+  "0": [
     {
       "second_sign": 1,
       "friendship_perc": "filler text filler text",
@@ -12,7 +12,7 @@
       "relationship_desc": "filler text filler text"
     }
   ],
-  "Taurus": [
+  "1": [
     {
       "second_sign": 1,
       "friendship_perc": "filler text filler text",
@@ -25,7 +25,7 @@
       "relationship_desc": "filler text filler text"
     }
   ],
-  "Libra": [
+  "2": [
     {
       "second_sign": 1,
       "friendship_perc": "filler text filler text",
@@ -38,7 +38,7 @@
       "relationship_desc": "filler text filler text"
     }
   ],
-  "Cancer": [
+  "3": [
     {
       "second_sign": 1,
       "friendship_perc": "filler text filler text",
@@ -51,7 +51,7 @@
       "relationship_desc": "filler text filler text"
     }
   ],
-  "Scorpio": [
+  "4": [
     {
       "second_sign": 1,
       "friendship_perc": "filler text filler text",
@@ -64,7 +64,7 @@
       "relationship_desc": "filler text filler text"
     }
   ],
-  "Leo": [
+  "5": [
     {
       "second_sign": 1,
       "friendship_perc": "filler text filler text",
@@ -77,7 +77,7 @@
       "relationship_desc": "filler text filler text"
     }
   ],
-  "Virgo": [
+  "6": [
     {
       "second_sign": 1,
       "friendship_perc": "filler text filler text",
@@ -90,7 +90,7 @@
       "relationship_desc": "filler text filler text"
     }
   ],
-  "Aquarius": [
+  "7": [
     {
       "second_sign": 1,
       "friendship_perc": "filler text filler text",
@@ -103,7 +103,7 @@
       "relationship_desc": "filler text filler text"
     }
   ],
-  "Gemini": [
+  "8": [
     {
       "second_sign": 1,
       "friendship_perc": "filler text filler text",
@@ -116,7 +116,7 @@
       "relationship_desc": "filler text filler text"
     }
   ],
-  "Sagittarius": [
+  "9": [
     {
       "second_sign": 1,
       "friendship_perc": "filler text filler text",
@@ -129,7 +129,7 @@
       "relationship_desc": "filler text filler text"
     }
   ],
-  "Pisces": [
+  "10": [
     {
       "second_sign": 1,
       "friendship_perc": "filler text filler text",
@@ -142,7 +142,7 @@
       "relationship_desc": "filler text filler text"
     }
   ],
-  "Capricorn": [
+  "11": [
     {
       "second_sign": 1,
       "friendship_perc": "filler text filler text",

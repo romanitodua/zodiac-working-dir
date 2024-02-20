@@ -22,8 +22,8 @@ class _CompatibilityDetailsState extends ConsumerState<CompatibilityDetails>
     with Responsive {
   late ValueNotifier<double> initialPosition;
   late ValueNotifier<double> opacityNotifier;
-  late ZodiacSign firstSign;
-  late ZodiacSign secondSign;
+  late OfflineZodiacData firstSign;
+  late OfflineZodiacData secondSign;
 
   @override
   void initState() {

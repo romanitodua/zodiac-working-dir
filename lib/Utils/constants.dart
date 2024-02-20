@@ -1,6 +1,6 @@
 import 'package:untitled1/Utils/dart_classes/zodiac_classes.dart';
 
-List<ZodiacSign> allSigns = [
+List<OfflineZodiacData> allSigns = [
   Aries(
       name: "Aries",
       dateInterval: "21Mar-19Apr",
