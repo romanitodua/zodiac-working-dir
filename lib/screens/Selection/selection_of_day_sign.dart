@@ -52,6 +52,7 @@ class _SelectionPageState extends State<SelectionPage> with Responsive {
                             setState(() {
                               selectedDayIndex.fillRange(0, 31, false);
                               selectedDayIndex[index] = true;
+                              currentDay = index+1;
                             });
                           },
                           child: CircleAvatar(
