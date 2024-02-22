@@ -1,5 +1,4 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:untitled1/Utils/data_caching.dart';
 
 part 'dark_mode_provider.g.dart';

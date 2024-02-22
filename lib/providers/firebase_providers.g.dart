@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'Provider.dart';
+part of 'firebase_providers.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$fetchDetailsHash() => r'9d77a5c9742b3f444430faa85f210de282e9a4ea';
+String _$fetchDetailsHash() => r'4ff1027e9ef47744908e607e520d0f6953db59a4';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -34,7 +34,7 @@ class _SystemHash {
 const fetchDetailsProvider = FetchDetailsFamily();
 
 /// See also [fetchDetails].
-class FetchDetailsFamily extends Family<AsyncValue<SignInformation>> {
+class FetchDetailsFamily extends Family<AsyncValue<FireBaseDetails>> {
   /// See also [fetchDetails].
   const FetchDetailsFamily();
 
@@ -75,7 +75,7 @@ class FetchDetailsFamily extends Family<AsyncValue<SignInformation>> {
 }
 
 /// See also [fetchDetails].
-class FetchDetailsProvider extends FutureProvider<SignInformation> {
+class FetchDetailsProvider extends FutureProvider<FireBaseDetails> {
   /// See also [fetchDetails].
   FetchDetailsProvider({
     required int sign,
@@ -115,7 +115,7 @@ class FetchDetailsProvider extends FutureProvider<SignInformation> {
 
   @override
   Override overrideWith(
-    FutureOr<SignInformation> Function(FetchDetailsRef provider) create,
+    FutureOr<FireBaseDetails> Function(FetchDetailsRef provider) create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -133,7 +133,7 @@ class FetchDetailsProvider extends FutureProvider<SignInformation> {
   }
 
   @override
-  FutureProviderElement<SignInformation> createElement() {
+  FutureProviderElement<FireBaseDetails> createElement() {
     return _FetchDetailsProviderElement(this);
   }
 
@@ -154,7 +154,7 @@ class FetchDetailsProvider extends FutureProvider<SignInformation> {
   }
 }
 
-mixin FetchDetailsRef on FutureProviderRef<SignInformation> {
+mixin FetchDetailsRef on FutureProviderRef<FireBaseDetails> {
   /// The parameter `sign` of this provider.
   int get sign;
 
@@ -163,7 +163,7 @@ mixin FetchDetailsRef on FutureProviderRef<SignInformation> {
 }
 
 class _FetchDetailsProviderElement
-    extends FutureProviderElement<SignInformation> with FetchDetailsRef {
+    extends FutureProviderElement<FireBaseDetails> with FetchDetailsRef {
   _FetchDetailsProviderElement(super.provider);
 
   @override
@@ -173,14 +173,15 @@ class _FetchDetailsProviderElement
 }
 
 String _$fetchCompatibilityHash() =>
-    r'4871101f3f9b9ec7d0f12adc28e46f4388f3fa89';
+    r'dc79b8fb001ad18341839a3891051b628422046d';
 
 /// See also [fetchCompatibility].
 @ProviderFor(fetchCompatibility)
 const fetchCompatibilityProvider = FetchCompatibilityFamily();
 
 /// See also [fetchCompatibility].
-class FetchCompatibilityFamily extends Family<AsyncValue<CompatibilityResult>> {
+class FetchCompatibilityFamily
+    extends Family<AsyncValue<FireBaseCompatibility>> {
   /// See also [fetchCompatibility].
   const FetchCompatibilityFamily();
 
@@ -222,7 +223,7 @@ class FetchCompatibilityFamily extends Family<AsyncValue<CompatibilityResult>> {
 
 /// See also [fetchCompatibility].
 class FetchCompatibilityProvider
-    extends AutoDisposeFutureProvider<CompatibilityResult> {
+    extends AutoDisposeFutureProvider<FireBaseCompatibility> {
   /// See also [fetchCompatibility].
   FetchCompatibilityProvider({
     required int firstSign,
@@ -262,7 +263,7 @@ class FetchCompatibilityProvider
 
   @override
   Override overrideWith(
-    FutureOr<CompatibilityResult> Function(FetchCompatibilityRef provider)
+    FutureOr<FireBaseCompatibility> Function(FetchCompatibilityRef provider)
         create,
   ) {
     return ProviderOverride(
@@ -281,7 +282,7 @@ class FetchCompatibilityProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<CompatibilityResult> createElement() {
+  AutoDisposeFutureProviderElement<FireBaseCompatibility> createElement() {
     return _FetchCompatibilityProviderElement(this);
   }
 
@@ -303,7 +304,7 @@ class FetchCompatibilityProvider
 }
 
 mixin FetchCompatibilityRef
-    on AutoDisposeFutureProviderRef<CompatibilityResult> {
+    on AutoDisposeFutureProviderRef<FireBaseCompatibility> {
   /// The parameter `firstSign` of this provider.
   int get firstSign;
 
@@ -312,7 +313,7 @@ mixin FetchCompatibilityRef
 }
 
 class _FetchCompatibilityProviderElement
-    extends AutoDisposeFutureProviderElement<CompatibilityResult>
+    extends AutoDisposeFutureProviderElement<FireBaseCompatibility>
     with FetchCompatibilityRef {
   _FetchCompatibilityProviderElement(super.provider);
 
@@ -323,7 +324,7 @@ class _FetchCompatibilityProviderElement
 }
 
 String _$fetchHomePageContentHash() =>
-    r'efd734313b89f7d4a97c94ebc31578fb07b4e762';
+    r'0eb23bb7da101dd3339064583ec7876c2c936e21';
 
 /// See also [fetchHomePageContent].
 @ProviderFor(fetchHomePageContent)
@@ -337,9 +338,11 @@ class FetchHomePageContentFamily extends Family<AsyncValue<HomePageContent>> {
   /// See also [fetchHomePageContent].
   FetchHomePageContentProvider call({
     required int sign,
+    required int day,
   }) {
     return FetchHomePageContentProvider(
       sign: sign,
+      day: day,
     );
   }
 
@@ -349,6 +352,7 @@ class FetchHomePageContentFamily extends Family<AsyncValue<HomePageContent>> {
   ) {
     return call(
       sign: provider.sign,
+      day: provider.day,
     );
   }
 
@@ -372,10 +376,12 @@ class FetchHomePageContentProvider extends FutureProvider<HomePageContent> {
   /// See also [fetchHomePageContent].
   FetchHomePageContentProvider({
     required int sign,
+    required int day,
   }) : this._internal(
           (ref) => fetchHomePageContent(
             ref as FetchHomePageContentRef,
             sign: sign,
+            day: day,
           ),
           from: fetchHomePageContentProvider,
           name: r'fetchHomePageContentProvider',
@@ -387,6 +393,7 @@ class FetchHomePageContentProvider extends FutureProvider<HomePageContent> {
           allTransitiveDependencies:
               FetchHomePageContentFamily._allTransitiveDependencies,
           sign: sign,
+          day: day,
         );
 
   FetchHomePageContentProvider._internal(
@@ -397,9 +404,11 @@ class FetchHomePageContentProvider extends FutureProvider<HomePageContent> {
     required super.debugGetCreateSourceHash,
     required super.from,
     required this.sign,
+    required this.day,
   }) : super.internal();
 
   final int sign;
+  final int day;
 
   @override
   Override overrideWith(
@@ -415,6 +424,7 @@ class FetchHomePageContentProvider extends FutureProvider<HomePageContent> {
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
         sign: sign,
+        day: day,
       ),
     );
   }
@@ -426,13 +436,16 @@ class FetchHomePageContentProvider extends FutureProvider<HomePageContent> {
 
   @override
   bool operator ==(Object other) {
-    return other is FetchHomePageContentProvider && other.sign == sign;
+    return other is FetchHomePageContentProvider &&
+        other.sign == sign &&
+        other.day == day;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
     hash = _SystemHash.combine(hash, sign.hashCode);
+    hash = _SystemHash.combine(hash, day.hashCode);
 
     return _SystemHash.finish(hash);
   }
@@ -441,6 +454,9 @@ class FetchHomePageContentProvider extends FutureProvider<HomePageContent> {
 mixin FetchHomePageContentRef on FutureProviderRef<HomePageContent> {
   /// The parameter `sign` of this provider.
   int get sign;
+
+  /// The parameter `day` of this provider.
+  int get day;
 }
 
 class _FetchHomePageContentProviderElement
@@ -450,6 +466,8 @@ class _FetchHomePageContentProviderElement
 
   @override
   int get sign => (origin as FetchHomePageContentProvider).sign;
+  @override
+  int get day => (origin as FetchHomePageContentProvider).day;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

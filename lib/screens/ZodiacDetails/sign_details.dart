@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:untitled1/Networking/Provider.dart';
 import 'package:untitled1/Utils/constants.dart';
-import 'package:untitled1/Utils/dart_classes/sign_infromation.dart';
+import 'package:untitled1/Utils/dart_classes/firebase_details_class.dart';
+import 'package:untitled1/providers/firebase_providers.dart';
 
 import '../../Utils/extensions.dart';
 
@@ -27,7 +27,7 @@ class _ZodiacDetailsState extends ConsumerState<SignDetails> with Responsive {
 
   @override
   Widget build(BuildContext context) {
-    AsyncValue<SignInformation> zodiac = ref
+    AsyncValue<FireBaseDetails> zodiac = ref
         .watch(fetchDetailsProvider(sign: widget.signIndex, day: widget.day));
     return SafeArea(
       child: Scaffold(

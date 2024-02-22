@@ -9,14 +9,14 @@ import 'package:untitled1/Utils/constants.dart';
 import 'package:untitled1/no_network_providers/dark_mode_provider.dart';
 import 'package:untitled1/no_network_providers/default_sign_provider.dart';
 import 'package:path_provider/path_provider.dart';
-class Settings extends ConsumerStatefulWidget {
-  const Settings({super.key});
+class SettingsScreen extends ConsumerStatefulWidget {
+  const SettingsScreen({super.key});
 
   @override
-  ConsumerState<Settings> createState() => _SettingsState();
+  ConsumerState<SettingsScreen> createState() => _SettingsState();
 }
 
-class _SettingsState extends ConsumerState<Settings> {
+class _SettingsState extends ConsumerState<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     bool darkMode = ref.watch(myNotifierProvider);
@@ -65,8 +65,8 @@ class _SettingsState extends ConsumerState<Settings> {
            Card(
             elevation: 2,
             child: ListTile(
-              title: Text("Give Feedback about the app"),
-              leading: Icon(Icons.feedback),
+              title: const Text("Give Feedback about the app"),
+              leading: const Icon(Icons.feedback),
               onTap: () {
                 BetterFeedback.of(context).show((UserFeedback feedback) async {
                   final screenshotFilePath =

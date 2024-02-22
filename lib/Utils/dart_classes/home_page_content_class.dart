@@ -12,19 +12,19 @@ class HomePageContent {
   String? yearMoto;
 
   HomePageContent(
-      {this.sign,
-      this.todayLove,
-      this.todayCareer,
-      this.todayHealth,
-      this.todayDescription,
-      this.yearDescription,
-      this.yearHealth,
-      this.yearCareer,
-      this.yearLove,
-      this.todayMoto,
-      this.yearMoto});
+      {required this.sign,
+      required this.todayLove,
+      required this.todayCareer,
+      required this.todayHealth,
+      required this.todayDescription,
+      required this.yearDescription,
+      required this.yearHealth,
+      required this.yearCareer,
+      required this.yearLove,
+      required this.todayMoto,
+      required this.yearMoto});
 
-  HomePageContent.fromJson(Map<String, dynamic> json) {
+  HomePageContent.fromFireBase(Map<String, dynamic> json) {
     sign = json['sign'];
     todayLove = json['today_love'];
     todayCareer = json['today_career'];
@@ -36,5 +36,20 @@ class HomePageContent {
     yearLove = json['year_love'];
     todayMoto = json['today_moto'];
     yearMoto = json['year_moto'];
+  }
+
+  factory HomePageContent.fromError() {
+    return HomePageContent(
+        sign: "Error Occurred",
+        todayLove: "Error Occurred",
+        todayCareer: "Error Occurred",
+        todayHealth: "Error Occurred",
+        todayDescription: "Error Occurred",
+        yearDescription: "Error Occurred",
+        yearHealth: "Error Occurred",
+        yearCareer: "Error Occurred",
+        yearLove: "Error Occurred",
+        todayMoto: "Error Occurred",
+        yearMoto: "Error Occurred");
   }
 }

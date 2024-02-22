@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'package:untitled1/Networking/Provider.dart';
 import 'package:untitled1/Utils/constants.dart';
 import 'package:untitled1/Utils/dart_classes/home_page_content_class.dart';
 import 'package:untitled1/Utils/extensions.dart';
 import 'package:untitled1/no_network_providers/default_sign_provider.dart';
 
 import '../Utils/dart_classes/zodiac_classes.dart';
+import '../providers/firebase_providers.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
@@ -50,7 +50,7 @@ class _HomePageState extends ConsumerState<HomePage>
     chosenSign = allSigns[defaultSign];
 
     AsyncValue<HomePageContent> signContents =
-        ref.watch(fetchHomePageContentProvider(sign: defaultSign));
+        ref.watch(fetchHomePageContentProvider(sign: defaultSign, day: 1));
     return signContents.when(data: (data) {
       return signChosenDisplayContent(data);
     }, error: (error, stack) {

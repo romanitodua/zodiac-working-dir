@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:untitled1/Networking/Provider.dart';
-import 'package:untitled1/Utils/dart_classes/compatibility_result.dart';
 import 'package:untitled1/Utils/constants.dart';
+import 'package:untitled1/Utils/dart_classes/firebase_compatibility_class.dart';
 import 'package:untitled1/Utils/dart_classes/zodiac_classes.dart';
-
 import '../Utils/extensions.dart';
+import '../providers/firebase_providers.dart';
 
 class CompatibilityDetails extends ConsumerStatefulWidget {
   final int firstSign;
@@ -54,7 +53,7 @@ class _CompatibilityDetailsState extends ConsumerState<CompatibilityDetails>
   @override
   Widget build(BuildContext context) {
     print("Rebuilt");
-    AsyncValue<CompatibilityResult> compatibilityResult = ref.watch(
+    AsyncValue<FireBaseCompatibility> compatibilityResult = ref.watch(
         fetchCompatibilityProvider(
             firstSign: widget.firstSign, secondSign: widget.secondSign));
 
@@ -76,7 +75,8 @@ class _CompatibilityDetailsState extends ConsumerState<CompatibilityDetails>
                 children: [
                   ValueListenableBuilder<double>(
                     valueListenable: initialPosition,
-                    builder: (BuildContext context, double value, Widget? child) {
+                    builder:
+                        (BuildContext context, double value, Widget? child) {
                       return AnimatedPositioned(
                         curve: Curves.elasticIn,
                         duration: const Duration(seconds: 2),
@@ -96,8 +96,8 @@ class _CompatibilityDetailsState extends ConsumerState<CompatibilityDetails>
                                 Column(
                                   children: [
                                     Expanded(
-                                        child:
-                                            Image.asset(firstSign.assetPicture)),
+                                        child: Image.asset(
+                                            firstSign.assetPicture)),
                                     Text(firstSign.name),
                                     Text(firstSign.dateInterval)
                                   ],
@@ -106,8 +106,8 @@ class _CompatibilityDetailsState extends ConsumerState<CompatibilityDetails>
                                 Column(
                                   children: [
                                     Expanded(
-                                        child:
-                                            Image.asset(secondSign.assetPicture)),
+                                        child: Image.asset(
+                                            secondSign.assetPicture)),
                                     Text(secondSign.name),
                                     Text(secondSign.dateInterval)
                                   ],
@@ -138,7 +138,7 @@ class _CompatibilityDetailsState extends ConsumerState<CompatibilityDetails>
                                   leading: const FaIcon(FontAwesomeIcons.heart),
                                   title: const Text('Relationship'),
                                   trailing: Text(
-                                    data.relationshipsPerc!,
+                                    data.relationshipPerc!,
                                     style: const TextStyle(
                                         fontSize: 16,
                                         fontWeight: FontWeight.bold),
@@ -159,7 +159,8 @@ class _CompatibilityDetailsState extends ConsumerState<CompatibilityDetails>
                               ),
                               Card(
                                 child: ListTile(
-                                  leading: const FaIcon(FontAwesomeIcons.handHoldingHeart),
+                                  leading: const FaIcon(
+                                      FontAwesomeIcons.handHoldingHeart),
                                   title: const Text('Marriage'),
                                   trailing: Text(
                                     data.marriagePerc!,
@@ -171,7 +172,8 @@ class _CompatibilityDetailsState extends ConsumerState<CompatibilityDetails>
                               ),
                               Card(
                                 child: ListTile(
-                                  leading: const FaIcon(FontAwesomeIcons.handHolding),
+                                  leading: const FaIcon(
+                                      FontAwesomeIcons.handHolding),
                                   title: const Text('Friendship'),
                                   trailing: Text(
                                     data.friendshipPerc!,
@@ -181,49 +183,73 @@ class _CompatibilityDetailsState extends ConsumerState<CompatibilityDetails>
                                   ),
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 20,
                               ),
-                              Text("Relationship",style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20
-
-                              ),),
-                              Text(data.relationshipDisc!,style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-
-
-
-                              ),),
-                              Text("Career/Work",style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20
-
-                              ),),
-                              Text(data.careerWorkDisc!,style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-
-
-
-                              ),),
-                              Text("Marriage",style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20
-
-                              ),),
-                              Text(data.marriageDisc!,style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-
-
-
-                              ),),
-                              Text("Friendship",style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20
-
-                              ),),
-                              Text(data.friendshipDisc!,style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-
-
-
-                              ),),
+                              Text(
+                                "Relationship",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium
+                                    ?.copyWith(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20),
+                              ),
+                              Text(
+                                data.relationshipDesc!,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium
+                                    ?.copyWith(),
+                              ),
+                              Text(
+                                "Career/Work",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium
+                                    ?.copyWith(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20),
+                              ),
+                              Text(
+                                data.careerWorkDesc!,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium
+                                    ?.copyWith(),
+                              ),
+                              Text(
+                                "Marriage",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium
+                                    ?.copyWith(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20),
+                              ),
+                              Text(
+                                data.careerWorkDesc!,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium
+                                    ?.copyWith(),
+                              ),
+                              Text(
+                                "Friendship",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium
+                                    ?.copyWith(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 20),
+                              ),
+                              Text(
+                                data.careerWorkDesc!,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium
+                                    ?.copyWith(),
+                              ),
                             ],
                           ),
                         ),
@@ -236,6 +262,6 @@ class _CompatibilityDetailsState extends ConsumerState<CompatibilityDetails>
           ));
         },
         error: (error, stacktrace) => const Text("print('');"),
-        loading: () => Center(child: const CircularProgressIndicator()));
+        loading: () => const Center(child: CircularProgressIndicator()));
   }
 }

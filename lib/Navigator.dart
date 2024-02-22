@@ -14,27 +14,24 @@ class MyNavigator extends StatefulWidget {
 
 class _MyNavigatorState extends State<MyNavigator> {
   final List<Widget> _pages = [
-    const Testing(),
     const HomePage(),
     const SelectionPage(),
     const CompatibilityChooser(),
-    const Settings(),
+    const SettingsScreen(),
   ];
-  int start_page = 0;
+  int startPage = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: start_page,
+        currentIndex: startPage,
         selectedItemColor: Colors.purple,
         unselectedItemColor: Colors.grey,
         onTap: (index) => setState(() {
-          start_page = index;
+          startPage = index;
         }),
         items: const [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.transfer_within_a_station), label: "testing"),
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(
               icon: FaIcon(FontAwesomeIcons.wpexplorer), label: "Explore"),
@@ -44,20 +41,7 @@ class _MyNavigatorState extends State<MyNavigator> {
           BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings")
         ],
       ),
-      body: _pages[start_page],
-    );
-  }
-}
-
-class Testing extends StatelessWidget {
-  const Testing({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: ElevatedButton(onPressed: () {}, child: Text("click")),
-      ),
+      body: _pages[startPage],
     );
   }
 }
