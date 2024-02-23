@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -7,6 +8,7 @@ import 'package:untitled1/Utils/constants.dart';
 import 'package:untitled1/Utils/dart_classes/home_page_content_class.dart';
 import 'package:untitled1/Utils/extensions.dart';
 import 'package:untitled1/no_network_providers/default_sign_provider.dart';
+import 'package:untitled1/settings_page/settings.dart';
 
 import '../Utils/dart_classes/zodiac_classes.dart';
 import '../providers/firebase_providers.dart';
@@ -44,7 +46,6 @@ class _HomePageState extends ConsumerState<HomePage>
 
     if (0 > defaultSign) {
       chosenSign = allSigns[0];
-      print("aq");
       return defaultSignNotChosen(false);
     }
     chosenSign = allSigns[defaultSign];
@@ -259,7 +260,7 @@ class _HomePageState extends ConsumerState<HomePage>
             height: 6,
           ),
           Card(
-            elevation: 5,
+            elevation: 0,
             shadowColor: Colors.grey,
             child: ElevatedButton(
               onPressed: () => {},
@@ -273,9 +274,28 @@ class _HomePageState extends ConsumerState<HomePage>
                 minimumSize:
                     Size(screenWidth / 2, screenHeight / 15), //////// HERE
               ),
-              child: const Text(
-                "Choose your Sign",
-                style: TextStyle(fontWeight: FontWeight.bold),
+              child: ElevatedButton(
+                onPressed: () => {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const SettingsScreen()),
+                  )
+                },
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.purple,
+                  shadowColor: Colors.greenAccent,
+                  elevation: 3,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(32.0)),
+                  minimumSize:
+                      Size(screenWidth / 2, screenHeight / 15), //////// HERE
+                ),
+                child: const Text(
+                  "Choose Your Sign",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
               ),
             ),
           )
@@ -458,8 +478,11 @@ class _HomePageState extends ConsumerState<HomePage>
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           CircleAvatar(
-            backgroundImage: AssetImage('assets/question.jpg'),
             radius: 48,
+            child: Text(
+              "?",
+              style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+            ),
           ),
           IntrinsicWidth(
             child: Column(
