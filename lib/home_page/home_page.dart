@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:intl/intl.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:untitled1/Utils/constants.dart';
@@ -10,6 +11,7 @@ import 'package:untitled1/no_network_providers/default_sign_provider.dart';
 import 'package:untitled1/settings_page/settings.dart';
 
 import '../Utils/dart_classes/zodiac_classes.dart';
+import '../providers/ad_state_provider.dart';
 import '../providers/firebase_providers.dart';
 
 class HomePage extends ConsumerStatefulWidget {
@@ -21,6 +23,7 @@ class HomePage extends ConsumerStatefulWidget {
 
 class _HomePageState extends ConsumerState<HomePage>
     with SingleTickerProviderStateMixin, Responsive {
+  BannerAd? banner;
   late TabController tabController;
   late String formattedDate;
   late OfflineZodiacData chosenSign;
@@ -35,8 +38,27 @@ class _HomePageState extends ConsumerState<HomePage>
 
   @override
   void dispose() {
+    if (banner != null) {
+      banner!.dispose();
+    }
     tabController.dispose();
     super.dispose();
+  }
+
+  @override
+  void didChangeDependencies() {
+    final adState = ref.watch(adStateProvider);
+    adState.initializationStatus.then((status) {
+      setState(() {
+        banner = BannerAd(
+            size: AdSize.banner,
+            adUnitId: adState.bannerAdUnitID,
+            listener: adState.adListener,
+            request: const AdRequest())
+          ..load();
+      });
+    });
+    super.didChangeDependencies();
   }
 
   @override
@@ -110,7 +132,15 @@ class _HomePageState extends ConsumerState<HomePage>
                   tabBarForChosenSign(data, false),
                 ]),
               ),
-            )
+            ),
+            banner == null
+                ? const SizedBox()
+                : SizedBox(
+                    height: 50,
+                    child: AdWidget(
+                      ad: banner!,
+                    ),
+                  )
           ],
         ),
       ),
