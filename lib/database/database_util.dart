@@ -51,12 +51,12 @@ class DatabaseUtil {
     final CollectionReference<Map<String, dynamic>> documentReference =
         FirebaseFirestore.instance.collection('home_page_content');
 
-    HomePageContent homePageContent = await documentReference
-        .doc(sign.toString())
-        .get()
-        .then(
-            (value) => HomePageContent.fromFireBase(value.get(day.toString())))
-        .catchError((error) => HomePageContent.fromError());
+    HomePageContent homePageContent =
+        await documentReference.doc(sign.toString()).get().then((value) {
+      return HomePageContent.fromFireBase(value.get(day.toString()));
+    }).catchError((error) {
+      return HomePageContent.fromError(sign);
+    });
 
     return homePageContent;
   }

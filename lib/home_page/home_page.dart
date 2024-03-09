@@ -41,6 +41,7 @@ class _HomePageState extends ConsumerState<HomePage>
 
   @override
   Widget build(BuildContext context) {
+    int day = DateTime.now().day;
     int defaultSign = ref.watch(defaultSignProvider);
 
     if (0 > defaultSign) {
@@ -50,7 +51,7 @@ class _HomePageState extends ConsumerState<HomePage>
     chosenSign = allSigns[defaultSign];
 
     AsyncValue<HomePageContent> signContents =
-        ref.watch(fetchHomePageContentProvider(sign: defaultSign, day: 1));
+        ref.watch(fetchHomePageContentProvider(sign: defaultSign, day: day));
     return signContents.when(data: (data) {
       return signChosenDisplayContent(data);
     }, error: (error, stack) {

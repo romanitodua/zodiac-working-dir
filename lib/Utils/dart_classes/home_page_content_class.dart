@@ -26,30 +26,30 @@ class HomePageContent {
 
   HomePageContent.fromFireBase(Map<String, dynamic> json) {
     sign = json['sign'];
-    todayLove = json['today_love'];
-    todayCareer = json['today_career'];
-    todayHealth = json['today_health'];
-    todayDescription = json['today_description'];
-    yearDescription = json['year_description'];
-    yearHealth = json['year_health'];
-    yearCareer = json['year_career'];
-    yearLove = json['year_love'];
-    todayMoto = json['today_moto'];
-    yearMoto = json['year_moto'];
+    todayLove = json['TodayLove'];
+    todayCareer = json['TodayCareer'];
+    todayHealth = json['TodayHealth'];
+    todayDescription = json['TodayDescription'];
+    yearDescription = json['YearDescription'];
+    yearHealth = json['YearHealth'];
+    yearCareer = json['YearCareer'];
+    yearLove = json['YearLove'];
+    todayMoto = json['TodayMoto'];
+    yearMoto = json['YearMoto'];
   }
 
-  factory HomePageContent.fromError() {
+  factory HomePageContent.fromError(int sign) {
     return HomePageContent(
-        sign: "Error Occurred",
-        todayLove: "Error Occurred",
-        todayCareer: "Error Occurred",
-        todayHealth: "Error Occurred",
-        todayDescription: "Error Occurred",
-        yearDescription: "Error Occurred",
-        yearHealth: "Error Occurred",
-        yearCareer: "Error Occurred",
-        yearLove: "Error Occurred",
-        todayMoto: "Error Occurred",
-        yearMoto: "Error Occurred");
+        sign: sign.toString(),
+        todayLove: "0",
+        todayCareer: "0",
+        todayHealth: "0",
+        todayDescription: "The information for today isn't updated yet , check back later",
+        yearDescription: "",
+        yearHealth: "0",
+        yearCareer: "0",
+        yearLove: "0",
+        todayMoto: "",
+        yearMoto: "");
   }
 }
