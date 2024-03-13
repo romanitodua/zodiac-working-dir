@@ -1,3 +1,5 @@
+Application is now on Google Play Store - https://play.google.com/store/apps/details?id=com.romanitodua.cosmicguide
+
 Horoscope Application implemented with Riverpod2.0 for state management (with recommended syntax from Riverpod docs). For caching the primitive values(is darkmode on? has the user chosen their zodiac sign) application uses SharedPreferences package from pub.dev. the backend is a firebase database.
 
 Application Demo (Note that the quality in the video is bad, application is smooth on emulators and real devices)
