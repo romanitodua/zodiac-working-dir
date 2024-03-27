@@ -30,6 +30,7 @@ class _SettingsState extends ConsumerState<SettingsScreen> {
               ),
         ),
         actions: [
+          Icon(Icons.dark_mode_sharp),
           Switch(
             value: darkMode,
             onChanged: (val) => ref.read(myNotifierProvider.notifier).toggle(),

@@ -1,19 +1,24 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:untitled1/Screens/ZodiacDetails/sign_details.dart';
 import 'package:untitled1/Utils/constants.dart';
 
+import '../../providers/ad_state_provider.dart';
 import '../../Utils/extensions.dart';
 
-class SelectionPage extends StatefulWidget {
+class SelectionPage extends ConsumerStatefulWidget {
   const SelectionPage({super.key});
 
   @override
-  State<SelectionPage> createState() => _SelectionPageState();
+  ConsumerState<SelectionPage> createState() => _SelectionPageState();
 }
 
-class _SelectionPageState extends State<SelectionPage> with Responsive {
+class _SelectionPageState extends ConsumerState<SelectionPage> with Responsive {
   late int currentDay;
+  BannerAd? banner;
   List<bool> selectedDayIndex = List.generate(31, (index) => false);
 
   @override
@@ -21,6 +26,30 @@ class _SelectionPageState extends State<SelectionPage> with Responsive {
     super.initState();
     currentDay = DateTime.now().day;
     selectedDayIndex[currentDay - 1] = true;
+  }
+
+  @override
+  void dispose() {
+    if (banner != null) {
+      banner!.dispose();
+    }
+    super.dispose();
+  }
+
+  @override
+  void didChangeDependencies() {
+    final adState = ref.watch(adStateProvider);
+    adState.initializationStatus.then((status) {
+      setState(() {
+        banner = BannerAd(
+            size: AdSize.banner,
+            adUnitId: adState.bannerAdUnitID,
+            listener: adState.adListener,
+            request: const AdRequest())
+          ..load();
+      });
+    });
+    super.didChangeDependencies();
   }
 
   @override
@@ -52,7 +81,7 @@ class _SelectionPageState extends State<SelectionPage> with Responsive {
                             setState(() {
                               selectedDayIndex.fillRange(0, 31, false);
                               selectedDayIndex[index] = true;
-                              currentDay = index+1;
+                              currentDay = index + 1;
                             });
                           },
                           child: CircleAvatar(
@@ -117,6 +146,20 @@ class _SelectionPageState extends State<SelectionPage> with Responsive {
                 childCount: 12,
               ),
             ),
+            SliverToBoxAdapter(
+                child: SizedBox(
+              height: 10,
+            )),
+            banner == null
+                ? SliverToBoxAdapter(child: const SizedBox())
+                : SliverToBoxAdapter(
+                    child: SizedBox(
+                      height: 50,
+                      child: AdWidget(
+                        ad: banner!,
+                      ),
+                    ),
+                  )
           ],
         ),
       ),
