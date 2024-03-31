@@ -441,7 +441,7 @@ class _HomePageState extends ConsumerState<HomePage>
         children: [
           CircleAvatar(
             backgroundColor: Colors.white,
-            backgroundImage: AssetImage(chosenSign.assetPicture),
+            backgroundImage: AssetImage(chosenSign.logoPicture),
             radius: 48,
           ),
           IntrinsicWidth(

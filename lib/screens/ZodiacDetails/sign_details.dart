@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:untitled1/Utils/constants.dart';
@@ -68,10 +70,15 @@ class _ZodiacDetailsState extends ConsumerState<SignDetails> with Responsive {
           child: Column(
             children: [
               SizedBox(
-                width: screenWidth,
-                height: screenHeight * 0.3,
-                child: Image.asset(allSigns[widget.signIndex].assetPicture,
-                    fit: BoxFit.fill),
+                width: screenWidth * 0.8,
+                height: screenWidth * 0.8,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(screenWidth * 0.15),
+                  child: Image.asset(
+                    allSigns[widget.signIndex].logoPicture,
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
               SizedBox(
                 height: screenHeight / 86,
@@ -125,15 +132,17 @@ class _ZodiacDetailsState extends ConsumerState<SignDetails> with Responsive {
                       const Center(child: CircularProgressIndicator()),
                 );
               }),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               banner == null
                   ? const SizedBox()
                   : SizedBox(
-                    height: 50,
-                    child: AdWidget(
-                      ad: banner!,
-                    ),
-                  )
+                      height: 50,
+                      child: AdWidget(
+                        ad: banner!,
+                      ),
+                    )
             ],
           ),
         ),
