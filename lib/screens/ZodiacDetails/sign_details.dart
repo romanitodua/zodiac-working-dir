@@ -55,8 +55,6 @@ class _ZodiacDetailsState extends ConsumerState<SignDetails> with Responsive {
 
   @override
   Widget build(BuildContext context) {
-    AsyncValue<FireBaseDetails> zodiac = ref
-        .watch(fetchDetailsProvider(sign: widget.signIndex, day: widget.day));
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -106,7 +104,10 @@ class _ZodiacDetailsState extends ConsumerState<SignDetails> with Responsive {
               SizedBox(
                 height: screenHeight / 86,
               ),
-              Consumer(builder: (builder, context, ref) {
+              Consumer(builder: (builder, context, child) {
+                AsyncValue<FireBaseDetails> zodiac = ref.watch(
+                    fetchDetailsProvider(
+                        sign: widget.signIndex, day: widget.day));
                 return zodiac.when(
                   data: (data) {
                     Widget result = const Text("");

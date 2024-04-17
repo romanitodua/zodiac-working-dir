@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:untitled1/Compatibility/CompatibilityDetails.dart';
@@ -13,15 +14,35 @@ class CompatibilityChooser extends StatefulWidget {
 
 class _CompatibilityChooserState extends State<CompatibilityChooser>
     with Responsive {
-  PageController firstPageController = PageController(viewportFraction: 0.8);
-  PageController secondPageController = PageController(viewportFraction: 0.8);
+  PageController firstPageController = PageController(viewportFraction: 0.6);
+  PageController secondPageController = PageController(viewportFraction: 0.6);
 
-  List<Widget> children =
-      allSigns.map((e) => Image.asset(e.assetPicture)).toList();
+  late List<Widget> children;
 
   @override
   void initState() {
     super.initState();
+    children = allSigns
+        .map((e) => Padding(
+              padding: EdgeInsets.all(6),
+              child: Column(
+                children: [
+                  SizedBox(
+                    width: screenWidth * 0.8,
+                    height: screenWidth * 0.8,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(screenWidth * 0.15),
+                      child: Image.asset(
+                        e.logoPicture,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  Center(child: Text(e.name))
+                ],
+              ),
+            ))
+        .toList();
   }
 
   @override
@@ -48,7 +69,10 @@ class _CompatibilityChooserState extends State<CompatibilityChooser>
             const Expanded(
                 child: Center(
               child: Center(
-                  child: FaIcon(FontAwesomeIcons.plus,size: 50,)),
+                  child: FaIcon(
+                FontAwesomeIcons.plus,
+                size: 50,
+              )),
             )),
             Expanded(
               child: PageView(
@@ -64,8 +88,8 @@ class _CompatibilityChooserState extends State<CompatibilityChooser>
                     context,
                     MaterialPageRoute(
                         builder: (context) => CompatibilityDetails(
-                              firstPageController.page!.floor(), secondPageController.page!.floor()
-                            )),
+                            firstPageController.page!.floor(),
+                            secondPageController.page!.floor())),
                   )
                 },
                 style: ElevatedButton.styleFrom(
