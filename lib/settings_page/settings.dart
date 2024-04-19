@@ -39,27 +39,6 @@ class _SettingsState extends ConsumerState<SettingsScreen> {
       ),
       body: Column(
         children: [
-          Card(
-            elevation: 2,
-            child: ListTile(
-              title: const Text("Choose your sign"),
-              trailing: DropdownMenu<int>(
-                  initialSelection: ref.read(defaultSignProvider) > 0
-                      ? ref.read(defaultSignProvider)
-                      : null,
-                  onSelected: (index) =>
-                      ref.read(defaultSignProvider.notifier).setSign(index!),
-                  inputDecorationTheme: const InputDecorationTheme(
-                      contentPadding: EdgeInsets.only(left: 20),
-                      border: InputBorder.none),
-                  dropdownMenuEntries: allSigns.map((e) {
-                    return DropdownMenuEntry(
-                        value: e.index,
-                        label: e.name,
-                        leadingIcon: ImageIcon(AssetImage(e.assetPicture)));
-                  }).toList()),
-            ),
-          ),
           const SizedBox(
             height: 6,
           ),
@@ -80,7 +59,6 @@ class _SettingsState extends ConsumerState<SettingsScreen> {
                     isHTML: false,
                   );
                   await FlutterEmailSender.send(email);
-
                 });
               },
             ),
