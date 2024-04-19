@@ -5,9 +5,7 @@ import 'package:feedback/feedback.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:untitled1/Utils/constants.dart';
 import 'package:untitled1/no_network_providers/dark_mode_provider.dart';
-import 'package:untitled1/no_network_providers/default_sign_provider.dart';
 import 'package:path_provider/path_provider.dart';
 class SettingsScreen extends ConsumerStatefulWidget {
   const SettingsScreen({super.key});

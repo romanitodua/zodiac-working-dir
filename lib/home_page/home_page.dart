@@ -8,8 +8,6 @@ import 'package:untitled1/Utils/constants.dart';
 import 'package:untitled1/Utils/dart_classes/home_page_content_class.dart';
 import 'package:untitled1/Utils/extensions.dart';
 import 'package:untitled1/no_network_providers/default_sign_provider.dart';
-
-import '../Utils/dart_classes/zodiac_classes.dart';
 import '../providers/ad_state_provider.dart';
 import '../providers/firebase_providers.dart';
 
