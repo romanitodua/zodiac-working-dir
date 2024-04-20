@@ -61,8 +61,6 @@ class _HomePageState extends ConsumerState<HomePage>
   Widget build(BuildContext context) {
     int day = DateTime.now().day;
     int defaultSign = ref.watch(defaultSignProvider);
-    print(defaultSign);
-    print("HERE HERE HERE HERE HERE HERE HERE ");
     return SafeArea(
       child: Scaffold(
         appBar: myAppBar(defaultSign),
