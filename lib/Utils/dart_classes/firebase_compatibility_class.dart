@@ -30,26 +30,26 @@ class FireBaseCompatibility {
   }
 
   FireBaseCompatibility.fromFireBase(Map<String, dynamic> json) {
-    friendshipDesc = json['friendship_desc'];
-    friendshipPerc = json['friendship_perc'];
-    relationshipDesc = json['relationship_desc'];
-    careerWorkPerc = json['careerWork_perc'];
-    marriagePerc = json['marriage_perc'];
-    marriageDesc = json['marriage_desc'];
-    careerWorkDesc = json['careerWork_desc'];
-    relationshipPerc = json['relationship_perc'];
+    friendshipDesc = json['FriendshipDisc'];
+    friendshipPerc = json['FriendshipPerc'];
+    relationshipDesc = json['RelationshipDisc'];
+    careerWorkPerc = json['CareerWorkPerc'];
+    marriagePerc = json['MarriagePerc'];
+    marriageDesc = json['MarriageDisc'];
+    careerWorkDesc = json['CareerWorkDisc'];
+    relationshipPerc = json['RelationshipPerc'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['friendship_desc'] = friendshipDesc;
-    data['friendship_perc'] = friendshipPerc;
-    data['relationship_desc'] = relationshipDesc;
-    data['careerWork_perc'] = careerWorkPerc;
-    data['marriage_perc'] = marriagePerc;
-    data['marriage_desc'] = marriageDesc;
-    data['careerWork_desc'] = careerWorkDesc;
-    data['relationship_perc'] = relationshipPerc;
+    data['FriendshipDisc'] = friendshipDesc;
+    data['FriendshipPerc'] = friendshipPerc;
+    data['RelationshipDisc'] = relationshipDesc;
+    data['CareerWorkPerc'] = careerWorkPerc;
+    data['MarriagePerc'] = marriagePerc;
+    data['MarriageDisc'] = marriageDesc;
+    data['CareerWorkDisc'] = careerWorkDesc;
+    data['RelationshipPerc'] = relationshipPerc;
     return data;
   }
 }
